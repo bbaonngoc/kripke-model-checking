@@ -1,0 +1,85 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Trang-1" id="5G6vAeFd_rM-oERTL0LY">
+    <mxGraphModel dx="738" dy="742" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="3V8pgU7TR9ENIqF7yk_W-13" edge="1" parent="1" source="3V8pgU7TR9ENIqF7yk_W-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3V8pgU7TR9ENIqF7yk_W-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3V8pgU7TR9ENIqF7yk_W-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="kripke.py (BFS)" vertex="1">
+          <mxGeometry height="40" width="100" x="180" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="3V8pgU7TR9ENIqF7yk_W-12" edge="1" parent="1" source="3V8pgU7TR9ENIqF7yk_W-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3V8pgU7TR9ENIqF7yk_W-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3V8pgU7TR9ENIqF7yk_W-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="model.py (6 biến)" vertex="1">
+          <mxGeometry height="40" width="80" x="80" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="3V8pgU7TR9ENIqF7yk_W-14" edge="1" parent="1" source="3V8pgU7TR9ENIqF7yk_W-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3V8pgU7TR9ENIqF7yk_W-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3V8pgU7TR9ENIqF7yk_W-15" edge="1" parent="1" source="3V8pgU7TR9ENIqF7yk_W-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3V8pgU7TR9ENIqF7yk_W-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3V8pgU7TR9ENIqF7yk_W-19" edge="1" parent="1" source="3V8pgU7TR9ENIqF7yk_W-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="3V8pgU7TR9ENIqF7yk_W-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3V8pgU7TR9ENIqF7yk_W-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="results/v0, v1 /model.json" vertex="1">
+          <mxGeometry height="40" width="100" x="300" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="3V8pgU7TR9ENIqF7yk_W-16" edge="1" parent="1" source="3V8pgU7TR9ENIqF7yk_W-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3V8pgU7TR9ENIqF7yk_W-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3V8pgU7TR9ENIqF7yk_W-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="ctl.py (safety và AF fixed point)" vertex="1">
+          <mxGeometry height="40" width="120" x="440" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="3V8pgU7TR9ENIqF7yk_W-17" edge="1" parent="1" source="3V8pgU7TR9ENIqF7yk_W-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3V8pgU7TR9ENIqF7yk_W-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3V8pgU7TR9ENIqF7yk_W-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="bmc.py (unroll và gọi Z3)" vertex="1">
+          <mxGeometry height="40" width="120" x="440" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="3V8pgU7TR9ENIqF7yk_W-20" edge="1" parent="1" source="3V8pgU7TR9ENIqF7yk_W-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3V8pgU7TR9ENIqF7yk_W-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3V8pgU7TR9ENIqF7yk_W-9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="verification.json (kết quả và counterexample)" vertex="1">
+          <mxGeometry height="40" width="140" x="580" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="3V8pgU7TR9ENIqF7yk_W-22" edge="1" parent="1" source="3V8pgU7TR9ENIqF7yk_W-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3V8pgU7TR9ENIqF7yk_W-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3V8pgU7TR9ENIqF7yk_W-10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="artifacts.py (sinh python và sơ đồ)" vertex="1">
+          <mxGeometry height="40" width="120" x="740" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="3V8pgU7TR9ENIqF7yk_W-11" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="generated/ và results/g4/" vertex="1">
+          <mxGeometry height="40" width="90" x="880" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="3V8pgU7TR9ENIqF7yk_W-23" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="40" y="440" as="sourcePoint" />
+            <mxPoint x="40" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3V8pgU7TR9ENIqF7yk_W-24" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="40" y="260" as="sourcePoint" />
+            <mxPoint x="1000" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3V8pgU7TR9ENIqF7yk_W-25" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="1000" y="440" as="sourcePoint" />
+            <mxPoint x="1000" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3V8pgU7TR9ENIqF7yk_W-26" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="40" y="440" as="sourcePoint" />
+            <mxPoint x="1000" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -10,7 +10,7 @@ from .model import INITIAL_STATE, VERSIONS, State, Version, labels, step, succes
 
 
 def _load_toolkit():
-    """Tái sử dụng lớp được cung cấp, không sửa hoặc sao chép toolkit."""
+    """Tái sử dụng lớp toolkit."""
     path = (
         Path(__file__).resolve().parents[1]
         / "toolkit/softsec-toolkit/ch1_models/kripke.py"

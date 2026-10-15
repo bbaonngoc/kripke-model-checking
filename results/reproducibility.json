@@ -1,0 +1,191 @@
+{
+  "checked_at": "2026-10-16T01:46:52.487543+07:00",
+  "method": "Exact git checkout-index export, fresh venv without system site-packages, fresh verified Graphviz download",
+  "platform": "Windows",
+  "exported_files": 60,
+  "runtime": {
+    "python": "3.14.2",
+    "pytest": "9.1.1",
+    "z3": "5.1.0",
+    "isolated_venv": true,
+    "source_inside_export": true
+  },
+  "graphviz": {
+    "version": "dot - graphviz version 16.1.0 (20260904.0139)",
+    "download_url": "https://gitlab.com/api/v4/projects/4207231/packages/generic/graphviz-releases/16.1.0/windows_10_cmake_Release_Graphviz-16.1.0-win64.zip",
+    "archive_sha256": "733e49626c492242eb8dca30ea627b6ead20710e207998c7933b4909d92d6abc"
+  },
+  "tests": {
+    "passed": 199,
+    "failed": 0,
+    "skipped": 0,
+    "scope": "tests/"
+  },
+  "versions": {
+    "v0": {
+      "statistics": {
+        "states": 21,
+        "reachable_states": 21,
+        "event_transitions": 69,
+        "relation_pairs": 65,
+        "max_bfs_depth": 5
+      },
+      "ctl": {
+        "P1": "VIOLATED",
+        "P2": "HOLDS",
+        "P3": "HOLDS",
+        "P4": "HOLDS",
+        "P5": "VIOLATED"
+      },
+      "solver_calls": 20,
+      "solver_outcomes": {
+        "SAT": 1,
+        "UNSAT": 19,
+        "UNKNOWN": 0
+      },
+      "completeness_threshold": 5
+    },
+    "v1": {
+      "statistics": {
+        "states": 18,
+        "reachable_states": 18,
+        "event_transitions": 46,
+        "relation_pairs": 42,
+        "max_bfs_depth": 5
+      },
+      "ctl": {
+        "P1": "HOLDS",
+        "P2": "HOLDS",
+        "P3": "HOLDS",
+        "P4": "HOLDS",
+        "P5": "HOLDS"
+      },
+      "solver_calls": 24,
+      "solver_outcomes": {
+        "SAT": 0,
+        "UNSAT": 24,
+        "UNKNOWN": 0
+      },
+      "completeness_threshold": 5
+    }
+  },
+  "verification_solver_calls": 44,
+  "verification_solver_outcomes": {
+    "SAT": 1,
+    "UNSAT": 43,
+    "UNKNOWN": 0
+  },
+  "application_errors": 0,
+  "generated_code": {
+    "v0": {
+      "status": "PASS",
+      "cases_checked": 378,
+      "accepted_cases": 125,
+      "rejected_cases": 253,
+      "distinct_edges_matched": 69
+    },
+    "v1": {
+      "status": "PASS",
+      "cases_checked": 324,
+      "accepted_cases": 82,
+      "rejected_cases": 242,
+      "distinct_edges_matched": 46
+    }
+  },
+  "diagrams_regenerated": 7,
+  "generated_programs_reproduced_byte_for_byte": true,
+  "exported_inputs_unchanged": true,
+  "input_sha256": {
+    ".gitattributes": "4916165fd4770d1d7ba012c5ae4202611cc541b249a1a8b2ce2f3e14d5eec106",
+    "generated/v0/smart_lock.py": "099fa62febef4c8afba2b498e025ed3af8e44243df6d0aba2e3901af17dca2c7",
+    "generated/v1/smart_lock.py": "c53b5e5235a3d02b99b182f81113401117ffe5a8fa9f062c3d5ed33f8b84bbd3",
+    "requirements.txt": "b84614ba700c517ef8846b98e8b53162a0d18c1610e30f156e9d17e1258d75fd",
+    "results/v0/model.json": "1c2480b813aeb640d4cdcedeffd98521444945e3941fb0b56f0c765d752f7e26",
+    "results/v0/verification.json": "698a107b8d4464e227c45a25585eadcc2db678edd44853089dd383400ec0eb0b",
+    "results/v1/model.json": "d0d83b24961a5de7803f8c9023ebd9df6770528d2b2d7c0c6843bfd16cdde085",
+    "results/v1/verification.json": "bfb021ee1187d2e5fef9be4bdbb614f0bc75780945d356677a5e0eb43f516dc1",
+    "run.py": "ea8d5614e3a171fb08a82fd8e4c5b5964ff0e493658d5938b300ac4512d8dc1a",
+    "smartlock/__init__.py": "fff0cd4d60cc0852f1a40965a5a339d8926ee723d3716d0df9eae14663c23f75",
+    "smartlock/artifacts.py": "db5f12cc3a1d7359817268d71ff1fc45f1a476fd1338b5d227c55cf7b5114b5a",
+    "smartlock/bmc.py": "b3b3faec50b650298678188f80c6f432320b60a9d27177eb776ca09de26e9e2d",
+    "smartlock/ctl.py": "1101aeacf3d6c6b3a954d89be3e3c21c5d6cd4514bc80fe93d31bdfae6ce528a",
+    "smartlock/kripke.py": "e78a852f78e741a181bdaf973a0dbe54f69e7f7afdfe26340e259aef7bf60dde",
+    "smartlock/model.py": "54e37e8f8d80ad2157fa9b86b1fc920d3b06703a0eeead1c27e89c7e3370811a",
+    "tests/test_artifacts.py": "a76e61898a34e7baf8a077c38ddf9f55032271826687c6527253758da670e55e",
+    "tests/test_kripke.py": "804fc26edbb3c6ede13390df16dfd5ee9bc754a8d2ac7fac00e4535240d12bbd",
+    "tests/test_model.py": "3a1377bc234e08b7d2c1c5ccaf58df9f5e53946069cddf1f8a6760def0f8ca27",
+    "tests/test_verification.py": "eb965864498fd471b5e0b3b7446c4e684ec5535fac89928ff833d9545b4268aa",
+    "toolkit/softsec-toolkit/ch1_models/kripke.py": "f7d0092d2e162648ba8b6a435bbea489cb31784d60eb726f9ea1aef86bf18342"
+  },
+  "commands": [
+    {
+      "command": "python -m venv .venv",
+      "exit": 0,
+      "expected_exit": 0
+    },
+    {
+      "command": "python -m pip install -r requirements.txt",
+      "exit": 0,
+      "expected_exit": 0
+    },
+    {
+      "command": "python -m pip check",
+      "exit": 0,
+      "expected_exit": 0
+    },
+    {
+      "command": "dot -V",
+      "exit": 0,
+      "expected_exit": 0
+    },
+    {
+      "command": "python -c \"check runtime/dependency locations\"",
+      "exit": 0,
+      "expected_exit": 0
+    },
+    {
+      "command": "python -I -S generated/v1/smart_lock.py --events password_ok open_door",
+      "exit": 0,
+      "expected_exit": 0
+    },
+    {
+      "command": "python -I -S generated/v1/smart_lock.py --events password_bad password_bad password_bad",
+      "exit": 0,
+      "expected_exit": 0
+    },
+    {
+      "command": "python -I -S generated/v0/smart_lock.py --events open_door",
+      "exit": 0,
+      "expected_exit": 0
+    },
+    {
+      "command": "python -I -S generated/v1/smart_lock.py --events open_door",
+      "exit": 1,
+      "expected_exit": 1
+    },
+    {
+      "command": "python -X utf8 run.py --output-dir tmp/recheck",
+      "exit": 0,
+      "expected_exit": 0
+    },
+    {
+      "command": "python -X utf8 run.py --verify --output-dir tmp/recheck",
+      "exit": 0,
+      "expected_exit": 0
+    },
+    {
+      "command": "python -X utf8 run.py --artifacts --output-dir tmp/recheck --generated-dir tmp/gen",
+      "exit": 0,
+      "expected_exit": 0
+    },
+    {
+      "command": "python -X utf8 -m pytest --color=no -p no:cacheprovider -v",
+      "exit": 0,
+      "expected_exit": 0
+    }
+  ],
+  "limits": [
+    "No Linux/macOS execution performed.",
+    "Publication rights for the original toolkit require confirmation; no license is invented."
+  ]
+}

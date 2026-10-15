@@ -1,10 +1,9 @@
-EXACT GIT INDEX EXPORT: 81 files; all bytes match index and workspace.
-Accepted G2/G3 source hashes match before any regeneration.
+Git index exported exactly: 60 files; no local reports or course resources.
 $ python -m venv .venv
 
 [exit=0; expected=0]
 
-  exit=0; expected=0; 6.089s
+  exit=0; expected=0
 $ python -m pip install -r requirements.txt
 Collecting pytest==9.1.1 (from -r requirements.txt (line 2))
   Downloading pytest-9.1.1-py3-none-any.whl.metadata (7.6 kB)
@@ -17,96 +16,44 @@ Collecting iniconfig>=1.0.1 (from pytest==9.1.1->-r requirements.txt (line 2))
 Collecting packaging>=22 (from pytest==9.1.1->-r requirements.txt (line 2))
   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
 Collecting pluggy<2,>=1.5 (from pytest==9.1.1->-r requirements.txt (line 2))
-  Downloading pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)
+  Downloading pluggy-1.7.0-py3-none-any.whl.metadata (5.0 kB)
 Collecting pygments>=2.7.2 (from pytest==9.1.1->-r requirements.txt (line 2))
   Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
 Downloading pytest-9.1.1-py3-none-any.whl (386 kB)
 Downloading z3_solver-5.1.0.0-py3-none-win_amd64.whl (17.0 MB)
-   ---------------------------------------- 17.0/17.0 MB 16.3 MB/s  0:00:01
-Downloading pluggy-1.6.0-py3-none-any.whl (20 kB)
+   ---------------------------------------- 17.0/17.0 MB 1.6 MB/s  0:00:11
+Downloading pluggy-1.7.0-py3-none-any.whl (27 kB)
 Downloading colorama-0.4.6-py2.py3-none-any.whl (25 kB)
 Downloading iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
 Downloading packaging-26.3-py3-none-any.whl (129 kB)
 Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
-   ---------------------------------------- 1.3/1.3 MB 118.5 MB/s  0:00:00
+   ---------------------------------------- 1.3/1.3 MB 5.6 MB/s  0:00:00
 Installing collected packages: z3-solver, pygments, pluggy, packaging, iniconfig, colorama, pytest
 
-Successfully installed colorama-0.4.6 iniconfig-2.3.1 packaging-26.3 pluggy-1.6.0 pygments-2.21.0 pytest-9.1.1 z3-solver-5.1.0.0
+Successfully installed colorama-0.4.6 iniconfig-2.3.1 packaging-26.3 pluggy-1.7.0 pygments-2.21.0 pytest-9.1.1 z3-solver-5.1.0.0
 
 [exit=0; expected=0]
 
-  exit=0; expected=0; 13.173s
+  exit=0; expected=0
 $ python -m pip check
 No broken requirements found.
 
 [exit=0; expected=0]
 
-  exit=0; expected=0; 0.728s
-Downloading Graphviz 16.1.0 from official release into clean repository .tools/.
+  exit=0; expected=0
+Installing Graphviz 16.1.0 from the official release into this clean environment.
 $ dot -V
 dot - graphviz version 16.1.0 (20260904.0139)
 
 [exit=0; expected=0]
 
-  exit=0; expected=0; 0.329s
-$ python -c "verify interpreter, dependency and source locations"
-{"python": "3.14.2", "pytest": "9.1.1", "z3": "5.1.0", "z3_module": ".venv\\Lib\\site-packages\\z3\\__init__.py", "pytest_module": ".venv\\Lib\\site-packages\\pytest\\__init__.py", "smartlock_module": "smartlock\\__init__.py", "system_site_packages": false}
+  exit=0; expected=0
+$ python -c "check runtime/dependency locations"
+{"python": "3.14.2", "pytest": "9.1.1", "z3": "5.1.0", "isolated_venv": true, "source_inside_export": true}
 
 [exit=0; expected=0]
 
-  exit=0; expected=0; 0.517s
-$ py -3 --version
-Python 3.14.2
-
-[exit=0; expected=0]
-
-  exit=0; expected=0; 0.159s
-$ python -X utf8 run.py --version v1 --output-dir tmp/demo --events password_ok open_door close_door
-v1: states=18, reachable=18, event_transitions=46, |R|=42, max_bfs_depth=5
-  Structural checks: 11 passed; basic data invariants: 4 passed
-  JSON: tmp\demo\v1\model.json
-step 0: {"authenticated": false, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "normal", "admin_authorized": false}
-step 1 --password_ok--> {"authenticated": true, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "normal", "admin_authorized": false}
-step 2 --open_door--> {"authenticated": true, "failed_attempts": 0, "door_open": true, "alarm": false, "phase": "normal", "admin_authorized": false}
-step 3 --close_door--> {"authenticated": false, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "normal", "admin_authorized": false}
-G2 only: no CTL/BMC verification has been run.
-
-[exit=0; expected=0]
-
-  exit=0; expected=0; 0.207s
-$ python -X utf8 run.py --version v1 --output-dir tmp/demo --events password_bad password_bad password_bad
-v1: states=18, reachable=18, event_transitions=46, |R|=42, max_bfs_depth=5
-  Structural checks: 11 passed; basic data invariants: 4 passed
-  JSON: tmp\demo\v1\model.json
-step 0: {"authenticated": false, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "normal", "admin_authorized": false}
-step 1 --password_bad--> {"authenticated": false, "failed_attempts": 1, "door_open": false, "alarm": false, "phase": "normal", "admin_authorized": false}
-step 2 --password_bad--> {"authenticated": false, "failed_attempts": 2, "door_open": false, "alarm": false, "phase": "normal", "admin_authorized": false}
-step 3 --password_bad--> {"authenticated": false, "failed_attempts": 3, "door_open": false, "alarm": false, "phase": "locked_out", "admin_authorized": false}
-G2 only: no CTL/BMC verification has been run.
-
-[exit=0; expected=0]
-
-  exit=0; expected=0; 0.198s
-$ python -X utf8 run.py --version v1 --output-dir tmp/demo --events tamper admin_reset reset_complete --admin-authenticated
-v1: states=18, reachable=18, event_transitions=46, |R|=42, max_bfs_depth=5
-  Structural checks: 11 passed; basic data invariants: 4 passed
-  JSON: tmp\demo\v1\model.json
-step 0: {"authenticated": false, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "normal", "admin_authorized": false}
-step 1 --tamper--> {"authenticated": false, "failed_attempts": 0, "door_open": false, "alarm": true, "phase": "normal", "admin_authorized": false}
-step 2 --admin_reset--> {"authenticated": false, "failed_attempts": 0, "door_open": false, "alarm": true, "phase": "resetting", "admin_authorized": true}
-step 3 --reset_complete--> {"authenticated": false, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "normal", "admin_authorized": false}
-G2 only: no CTL/BMC verification has been run.
-
-[exit=0; expected=0]
-
-  exit=0; expected=0; 0.188s
-$ python -I -S generated/v0/smart_lock.py --events open_door
-step 0 s0: {"authenticated": false, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "normal", "admin_authorized": false}
-step 1 --open_door--> s3: {"authenticated": false, "failed_attempts": 0, "door_open": true, "alarm": false, "phase": "normal", "admin_authorized": false}
-
-[exit=0; expected=0]
-
-  exit=0; expected=0; 0.157s
+  exit=0; expected=0
 $ python -I -S generated/v1/smart_lock.py --events password_ok open_door
 step 0 s0: {"authenticated": false, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "normal", "admin_authorized": false}
 step 1 --password_ok--> s1: {"authenticated": true, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "normal", "admin_authorized": false}
@@ -114,43 +61,143 @@ step 2 --open_door--> s5: {"authenticated": true, "failed_attempts": 0, "door_op
 
 [exit=0; expected=0]
 
-  exit=0; expected=0; 0.177s
+  exit=0; expected=0
+$ python -I -S generated/v1/smart_lock.py --events password_bad password_bad password_bad
+step 0 s0: {"authenticated": false, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "normal", "admin_authorized": false}
+step 1 --password_bad--> s2: {"authenticated": false, "failed_attempts": 1, "door_open": false, "alarm": false, "phase": "normal", "admin_authorized": false}
+step 2 --password_bad--> s6: {"authenticated": false, "failed_attempts": 2, "door_open": false, "alarm": false, "phase": "normal", "admin_authorized": false}
+step 3 --password_bad--> s10: {"authenticated": false, "failed_attempts": 3, "door_open": false, "alarm": false, "phase": "locked_out", "admin_authorized": false}
+
+[exit=0; expected=0]
+
+  exit=0; expected=0
+$ python -I -S generated/v0/smart_lock.py --events open_door
+step 0 s0: {"authenticated": false, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "normal", "admin_authorized": false}
+step 1 --open_door--> s3: {"authenticated": false, "failed_attempts": 0, "door_open": true, "alarm": false, "phase": "normal", "admin_authorized": false}
+
+[exit=0; expected=0]
+
+  exit=0; expected=0
 $ python -I -S generated/v1/smart_lock.py --events open_door
 step 0 s0: {"authenticated": false, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "normal", "admin_authorized": false}
 step 1: REJECTED Event 'open_door' is not enabled at s0
 
 [exit=1; expected=1]
 
-  exit=1; expected=1; 0.182s
-$ python -I -S generated/v0/smart_lock.py --events admin_reset reset_retry reset_retry --admin-authenticated
-step 0 s0: {"authenticated": false, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "normal", "admin_authorized": false}
-step 1 --admin_reset--> s5: {"authenticated": false, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "resetting", "admin_authorized": true}
-step 2 --reset_retry--> s5: {"authenticated": false, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "resetting", "admin_authorized": true}
-step 3 --reset_retry--> s5: {"authenticated": false, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "resetting", "admin_authorized": true}
+  exit=1; expected=1
+$ python -X utf8 run.py --output-dir tmp/recheck
+v0: states=21, reachable=21, event_transitions=69, |R|=65, max_bfs_depth=5
+  Structural checks: 11 passed; basic data invariants: 4 passed
+  JSON: tmp\recheck\v0\model.json
+v1: states=18, reachable=18, event_transitions=46, |R|=42, max_bfs_depth=5
+  Structural checks: 11 passed; basic data invariants: 4 passed
+  JSON: tmp\recheck\v1\model.json
+G2 only: no CTL/BMC verification has been run.
 
 [exit=0; expected=0]
 
-  exit=0; expected=0; 0.16s
-$ python -I -S generated/v1/smart_lock.py --events admin_reset reset_complete --admin-authenticated
-step 0 s0: {"authenticated": false, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "normal", "admin_authorized": false}
-step 1 --admin_reset--> s4: {"authenticated": false, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "resetting", "admin_authorized": true}
-step 2 --reset_complete--> s0: {"authenticated": false, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "normal", "admin_authorized": false}
+  exit=0; expected=0
+$ python -X utf8 run.py --verify --output-dir tmp/recheck
+G3 verification; Z3 5.1.0; no G4/G5 artifacts
+v0: snapshot G2 matched; D=5; solver_calls=20; outcomes={'SAT': 1, 'UNSAT': 19, 'UNKNOWN': 0}; application_errors=0
+  P1 AG(door_open -> (authenticated AND NOT locked_out)): CTL=VIOLATED; antecedent_states=4
+    Z3 k=0: UNSAT; status=UNSAT; called=True
+    Z3 k=1: SAT; status=SAT; called=True
+    BMC conclusion=VIOLATED; agreement=True
+    Counterexample replay validated: s0 --open_door--> s3; violation_step=1
+      step 0 s0: {'authenticated': False, 'failed_attempts': 0, 'door_open': False, 'alarm': False, 'phase': 'normal', 'admin_authorized': False}; incoming=None; admin_authenticated=False
+      step 1 s3: {'authenticated': False, 'failed_attempts': 0, 'door_open': True, 'alarm': False, 'phase': 'normal', 'admin_authorized': False}; incoming=open_door; admin_authenticated=False
+  P2 AG(locked_out -> attempts_eq_3): CTL=HOLDS; antecedent_states=2
+    Z3 k=0: UNSAT; status=UNSAT; called=True
+    Z3 k=1: UNSAT; status=UNSAT; called=True
+    Z3 k=2: UNSAT; status=UNSAT; called=True
+    Z3 k=3: UNSAT; status=UNSAT; called=True
+    Z3 k=4: UNSAT; status=UNSAT; called=True
+    Z3 k=5: UNSAT; status=UNSAT; called=True
+    BMC conclusion=HOLDS; agreement=True
+  P3 AG(alarm -> NOT door_open): CTL=HOLDS; antecedent_states=8
+    Z3 k=0: UNSAT; status=UNSAT; called=True
+    Z3 k=1: UNSAT; status=UNSAT; called=True
+    Z3 k=2: UNSAT; status=UNSAT; called=True
+    Z3 k=3: UNSAT; status=UNSAT; called=True
+    Z3 k=4: UNSAT; status=UNSAT; called=True
+    Z3 k=5: UNSAT; status=UNSAT; called=True
+    BMC conclusion=HOLDS; agreement=True
+  P4 AG(resetting -> admin_authorized): CTL=HOLDS; antecedent_states=8
+    Z3 k=0: UNSAT; status=UNSAT; called=True
+    Z3 k=1: UNSAT; status=UNSAT; called=True
+    Z3 k=2: UNSAT; status=UNSAT; called=True
+    Z3 k=3: UNSAT; status=UNSAT; called=True
+    Z3 k=4: UNSAT; status=UNSAT; called=True
+    Z3 k=5: UNSAT; status=UNSAT; called=True
+    BMC conclusion=HOLDS; agreement=True
+  P5 AG(resetting -> AF idle): CTL=VIOLATED; antecedent_states=8
+    AF fixed-point sizes=[1]; Z3 not used
+    Counterexample replay validated: s0 --admin_reset--> s5 --reset_retry--> s5; reset_step=1; loop_start=1
+      step 0 s0: {'authenticated': False, 'failed_attempts': 0, 'door_open': False, 'alarm': False, 'phase': 'normal', 'admin_authorized': False}; incoming=None; admin_authenticated=False
+      step 1 s5: {'authenticated': False, 'failed_attempts': 0, 'door_open': False, 'alarm': False, 'phase': 'resetting', 'admin_authorized': True}; incoming=admin_reset; admin_authenticated=True
+      step 2 s5: {'authenticated': False, 'failed_attempts': 0, 'door_open': False, 'alarm': False, 'phase': 'resetting', 'admin_authorized': True}; incoming=reset_retry; admin_authenticated=False
+  Saved tmp\recheck\v0\verification.json
+v1: snapshot G2 matched; D=5; solver_calls=24; outcomes={'SAT': 0, 'UNSAT': 24, 'UNKNOWN': 0}; application_errors=0
+  P1 AG(door_open -> (authenticated AND NOT locked_out)): CTL=HOLDS; antecedent_states=1
+    Z3 k=0: UNSAT; status=UNSAT; called=True
+    Z3 k=1: UNSAT; status=UNSAT; called=True
+    Z3 k=2: UNSAT; status=UNSAT; called=True
+    Z3 k=3: UNSAT; status=UNSAT; called=True
+    Z3 k=4: UNSAT; status=UNSAT; called=True
+    Z3 k=5: UNSAT; status=UNSAT; called=True
+    BMC conclusion=HOLDS; agreement=True
+  P2 AG(locked_out -> attempts_eq_3): CTL=HOLDS; antecedent_states=2
+    Z3 k=0: UNSAT; status=UNSAT; called=True
+    Z3 k=1: UNSAT; status=UNSAT; called=True
+    Z3 k=2: UNSAT; status=UNSAT; called=True
+    Z3 k=3: UNSAT; status=UNSAT; called=True
+    Z3 k=4: UNSAT; status=UNSAT; called=True
+    Z3 k=5: UNSAT; status=UNSAT; called=True
+    BMC conclusion=HOLDS; agreement=True
+  P3 AG(alarm -> NOT door_open): CTL=HOLDS; antecedent_states=8
+    Z3 k=0: UNSAT; status=UNSAT; called=True
+    Z3 k=1: UNSAT; status=UNSAT; called=True
+    Z3 k=2: UNSAT; status=UNSAT; called=True
+    Z3 k=3: UNSAT; status=UNSAT; called=True
+    Z3 k=4: UNSAT; status=UNSAT; called=True
+    Z3 k=5: UNSAT; status=UNSAT; called=True
+    BMC conclusion=HOLDS; agreement=True
+  P4 AG(resetting -> admin_authorized): CTL=HOLDS; antecedent_states=8
+    Z3 k=0: UNSAT; status=UNSAT; called=True
+    Z3 k=1: UNSAT; status=UNSAT; called=True
+    Z3 k=2: UNSAT; status=UNSAT; called=True
+    Z3 k=3: UNSAT; status=UNSAT; called=True
+    Z3 k=4: UNSAT; status=UNSAT; called=True
+    Z3 k=5: UNSAT; status=UNSAT; called=True
+    BMC conclusion=HOLDS; agreement=True
+  P5 AG(resetting -> AF idle): CTL=HOLDS; antecedent_states=8
+    AF fixed-point sizes=[1, 9]; Z3 not used
+  Saved tmp\recheck\v1\verification.json
+All verification-run solver outcomes: {'SAT': 1, 'UNSAT': 43, 'UNKNOWN': 0}; application_errors=0; saved tmp\recheck\comparison.csv
 
 [exit=0; expected=0]
 
-  exit=0; expected=0; 0.247s
-$ python -I -S generated/v1/smart_lock.py --events admin_reset reset_retry --admin-authenticated
-step 0 s0: {"authenticated": false, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "normal", "admin_authorized": false}
-step 1 --admin_reset--> s4: {"authenticated": false, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "resetting", "admin_authorized": true}
-step 2: REJECTED Event 'reset_retry' is not enabled at s4
+  exit=0; expected=0
+$ python -X utf8 run.py --artifacts --output-dir tmp/recheck --generated-dir tmp/gen
+v0: generated tmp\gen\v0\smart_lock.py; audit PASS; cases=378, accepted=125, rejected=253, edges=69
+v1: generated tmp\gen\v1\smart_lock.py; audit PASS; cases=324, accepted=82, rejected=242, edges=46
+Diagram kripke_v0: SVG + PNG [2304, 2256]; warnings=0
+Diagram kripke_v1: SVG + PNG [2311, 1769]; warnings=0
+Diagram authentication_lockout: SVG + PNG [816, 1051]; warnings=0
+Diagram door_alarm: SVG + PNG [807, 1051]; warnings=0
+Diagram admin_recovery: SVG + PNG [913, 1411]; warnings=0
+Diagram counterexample_p1_v0: SVG + PNG [716, 661]; warnings=0
+Diagram counterexample_p5_v0: SVG + PNG [772, 691]; warnings=0
+G4 complete: G2/G3 evidence reused; no new CTL/BMC run or G5 PDF.
 
-[exit=1; expected=1]
+[exit=0; expected=0]
 
-  exit=1; expected=1; 0.148s
+  exit=0; expected=0
 $ python -X utf8 -m pytest --color=no -p no:cacheprovider -v
 ============================= test session starts =============================
-platform win32 -- Python 3.14.2, pytest-9.1.1, pluggy-1.6.0 -- <clean-repository>\.venv\Scripts\python.EXE
-rootdir: <clean-repository>
+platform win32 -- Python 3.14.2, pytest-9.1.1, pluggy-1.7.0 -- <repository>\.venv\Scripts\python.EXE
+rootdir: <repository>
 configfile: pytest.ini
 testpaths: tests
 collecting ... collected 199 items
@@ -355,144 +402,9 @@ tests/test_verification.py::test_incomplete_g2_graph_cannot_produce_a_global_saf
 tests/test_verification.py::test_loading_g2_snapshot_detects_stale_or_tampered_labels PASSED [ 99%]
 tests/test_verification.py::test_verification_cli_preserves_g2_and_records_every_actual_query PASSED [100%]
 
-============================= 199 passed in 6.01s =============================
+============================= 199 passed in 9.25s =============================
 
 [exit=0; expected=0]
 
-  exit=0; expected=0; 6.648s
-$ python -X utf8 run.py --output-dir tmp/recheck
-v0: states=21, reachable=21, event_transitions=69, |R|=65, max_bfs_depth=5
-  Structural checks: 11 passed; basic data invariants: 4 passed
-  JSON: tmp\recheck\v0\model.json
-v1: states=18, reachable=18, event_transitions=46, |R|=42, max_bfs_depth=5
-  Structural checks: 11 passed; basic data invariants: 4 passed
-  JSON: tmp\recheck\v1\model.json
-G2 only: no CTL/BMC verification has been run.
-
-[exit=0; expected=0]
-
-  exit=0; expected=0; 0.194s
-$ python -X utf8 run.py --verify --output-dir tmp/recheck
-G3 verification; Z3 5.1.0; no G4/G5 artifacts
-v0: snapshot G2 matched; D=5; solver_calls=20; outcomes={'SAT': 1, 'UNSAT': 19, 'UNKNOWN': 0}; application_errors=0
-  P1 AG(door_open -> (authenticated AND NOT locked_out)): CTL=VIOLATED; antecedent_states=4
-    Z3 k=0: UNSAT; status=UNSAT; called=True
-    Z3 k=1: SAT; status=SAT; called=True
-    BMC conclusion=VIOLATED; agreement=True
-    Counterexample replay validated: s0 --open_door--> s3; violation_step=1
-      step 0 s0: {'authenticated': False, 'failed_attempts': 0, 'door_open': False, 'alarm': False, 'phase': 'normal', 'admin_authorized': False}; incoming=None; admin_authenticated=False
-      step 1 s3: {'authenticated': False, 'failed_attempts': 0, 'door_open': True, 'alarm': False, 'phase': 'normal', 'admin_authorized': False}; incoming=open_door; admin_authenticated=False
-  P2 AG(locked_out -> attempts_eq_3): CTL=HOLDS; antecedent_states=2
-    Z3 k=0: UNSAT; status=UNSAT; called=True
-    Z3 k=1: UNSAT; status=UNSAT; called=True
-    Z3 k=2: UNSAT; status=UNSAT; called=True
-    Z3 k=3: UNSAT; status=UNSAT; called=True
-    Z3 k=4: UNSAT; status=UNSAT; called=True
-    Z3 k=5: UNSAT; status=UNSAT; called=True
-    BMC conclusion=HOLDS; agreement=True
-  P3 AG(alarm -> NOT door_open): CTL=HOLDS; antecedent_states=8
-    Z3 k=0: UNSAT; status=UNSAT; called=True
-    Z3 k=1: UNSAT; status=UNSAT; called=True
-    Z3 k=2: UNSAT; status=UNSAT; called=True
-    Z3 k=3: UNSAT; status=UNSAT; called=True
-    Z3 k=4: UNSAT; status=UNSAT; called=True
-    Z3 k=5: UNSAT; status=UNSAT; called=True
-    BMC conclusion=HOLDS; agreement=True
-  P4 AG(resetting -> admin_authorized): CTL=HOLDS; antecedent_states=8
-    Z3 k=0: UNSAT; status=UNSAT; called=True
-    Z3 k=1: UNSAT; status=UNSAT; called=True
-    Z3 k=2: UNSAT; status=UNSAT; called=True
-    Z3 k=3: UNSAT; status=UNSAT; called=True
-    Z3 k=4: UNSAT; status=UNSAT; called=True
-    Z3 k=5: UNSAT; status=UNSAT; called=True
-    BMC conclusion=HOLDS; agreement=True
-  P5 AG(resetting -> AF idle): CTL=VIOLATED; antecedent_states=8
-    AF fixed-point sizes=[1]; Z3 not used
-    Counterexample replay validated: s0 --admin_reset--> s5 --reset_retry--> s5; reset_step=1; loop_start=1
-      step 0 s0: {'authenticated': False, 'failed_attempts': 0, 'door_open': False, 'alarm': False, 'phase': 'normal', 'admin_authorized': False}; incoming=None; admin_authenticated=False
-      step 1 s5: {'authenticated': False, 'failed_attempts': 0, 'door_open': False, 'alarm': False, 'phase': 'resetting', 'admin_authorized': True}; incoming=admin_reset; admin_authenticated=True
-      step 2 s5: {'authenticated': False, 'failed_attempts': 0, 'door_open': False, 'alarm': False, 'phase': 'resetting', 'admin_authorized': True}; incoming=reset_retry; admin_authenticated=False
-  Saved tmp\recheck\v0\verification.json
-v1: snapshot G2 matched; D=5; solver_calls=24; outcomes={'SAT': 0, 'UNSAT': 24, 'UNKNOWN': 0}; application_errors=0
-  P1 AG(door_open -> (authenticated AND NOT locked_out)): CTL=HOLDS; antecedent_states=1
-    Z3 k=0: UNSAT; status=UNSAT; called=True
-    Z3 k=1: UNSAT; status=UNSAT; called=True
-    Z3 k=2: UNSAT; status=UNSAT; called=True
-    Z3 k=3: UNSAT; status=UNSAT; called=True
-    Z3 k=4: UNSAT; status=UNSAT; called=True
-    Z3 k=5: UNSAT; status=UNSAT; called=True
-    BMC conclusion=HOLDS; agreement=True
-  P2 AG(locked_out -> attempts_eq_3): CTL=HOLDS; antecedent_states=2
-    Z3 k=0: UNSAT; status=UNSAT; called=True
-    Z3 k=1: UNSAT; status=UNSAT; called=True
-    Z3 k=2: UNSAT; status=UNSAT; called=True
-    Z3 k=3: UNSAT; status=UNSAT; called=True
-    Z3 k=4: UNSAT; status=UNSAT; called=True
-    Z3 k=5: UNSAT; status=UNSAT; called=True
-    BMC conclusion=HOLDS; agreement=True
-  P3 AG(alarm -> NOT door_open): CTL=HOLDS; antecedent_states=8
-    Z3 k=0: UNSAT; status=UNSAT; called=True
-    Z3 k=1: UNSAT; status=UNSAT; called=True
-    Z3 k=2: UNSAT; status=UNSAT; called=True
-    Z3 k=3: UNSAT; status=UNSAT; called=True
-    Z3 k=4: UNSAT; status=UNSAT; called=True
-    Z3 k=5: UNSAT; status=UNSAT; called=True
-    BMC conclusion=HOLDS; agreement=True
-  P4 AG(resetting -> admin_authorized): CTL=HOLDS; antecedent_states=8
-    Z3 k=0: UNSAT; status=UNSAT; called=True
-    Z3 k=1: UNSAT; status=UNSAT; called=True
-    Z3 k=2: UNSAT; status=UNSAT; called=True
-    Z3 k=3: UNSAT; status=UNSAT; called=True
-    Z3 k=4: UNSAT; status=UNSAT; called=True
-    Z3 k=5: UNSAT; status=UNSAT; called=True
-    BMC conclusion=HOLDS; agreement=True
-  P5 AG(resetting -> AF idle): CTL=HOLDS; antecedent_states=8
-    AF fixed-point sizes=[1, 9]; Z3 not used
-  Saved tmp\recheck\v1\verification.json
-All verification-run solver outcomes: {'SAT': 1, 'UNSAT': 43, 'UNKNOWN': 0}; application_errors=0; saved tmp\recheck\comparison.csv
-
-[exit=0; expected=0]
-
-  exit=0; expected=0; 1.239s
-$ python -X utf8 run.py --artifacts --output-dir tmp/recheck --generated-dir tmp/gen
-v0: generated tmp\gen\v0\smart_lock.py; audit PASS; cases=378, accepted=125, rejected=253, edges=69
-v1: generated tmp\gen\v1\smart_lock.py; audit PASS; cases=324, accepted=82, rejected=242, edges=46
-Diagram kripke_v0: SVG + PNG [2304, 2256]; warnings=0
-Diagram kripke_v1: SVG + PNG [2311, 1769]; warnings=0
-Diagram authentication_lockout: SVG + PNG [816, 1051]; warnings=0
-Diagram door_alarm: SVG + PNG [807, 1051]; warnings=0
-Diagram admin_recovery: SVG + PNG [913, 1411]; warnings=0
-Diagram counterexample_p1_v0: SVG + PNG [716, 661]; warnings=0
-Diagram counterexample_p5_v0: SVG + PNG [772, 691]; warnings=0
-G4 complete: G2/G3 evidence reused; no new CTL/BMC run or G5 PDF.
-
-[exit=0; expected=0]
-
-  exit=0; expected=0; 2.416s
-$ python -X utf8 run.py --artifacts --output-dir tmp/accepted --generated-dir tmp/from_accepted
-v0: generated tmp\from_accepted\v0\smart_lock.py; audit PASS; cases=378, accepted=125, rejected=253, edges=69
-v1: generated tmp\from_accepted\v1\smart_lock.py; audit PASS; cases=324, accepted=82, rejected=242, edges=46
-Diagram kripke_v0: SVG + PNG [2304, 2256]; warnings=0
-Diagram kripke_v1: SVG + PNG [2311, 1769]; warnings=0
-Diagram authentication_lockout: SVG + PNG [816, 1051]; warnings=0
-Diagram door_alarm: SVG + PNG [807, 1051]; warnings=0
-Diagram admin_recovery: SVG + PNG [913, 1411]; warnings=0
-Diagram counterexample_p1_v0: SVG + PNG [716, 661]; warnings=0
-Diagram counterexample_p5_v0: SVG + PNG [772, 691]; warnings=0
-G4 complete: G2/G3 evidence reused; no new CTL/BMC run or G5 PDF.
-
-[exit=0; expected=0]
-
-  exit=0; expected=0; 2.521s
-PASS: 199 tests; 702 generated-code cases; 115 edges; seven diagrams; 44 real Z3 checks.
-All accepted source, tests, models, verification reports, diagrams and PDFs remain unchanged.
-
-FINAL STATIC REVIEW
-{
-  "secret_pattern_findings": [],
-  "readme_relative_links": 40,
-  "missing_readme_links": [],
-  "readme_links_not_in_index": [],
-  "git_diff_check_exit": 0
-}
-No commit or push. Toolkit publication permission remains unconfirmed. Historical evidence may include original machine paths.
+  exit=0; expected=0
+Verified: 199 tests passed; 702 generated-code comparisons; 115 edges; seven diagrams; 44 real verification solver calls.
