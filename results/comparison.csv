@@ -1,0 +1,11 @@
+﻿version,property,formula,kind,method,ctl_status,bmc_status,last_solver_status,checked_bounds,safety_completeness_threshold,counterexample
+v0,P1,AG(door_open -> (authenticated AND NOT locked_out)),safety,explicit_reachable_states + bmc_z3,VIOLATED,VIOLATED,SAT,0;1,5,s0 --open_door--> s3; violation_step=1
+v0,P2,AG(locked_out -> attempts_eq_3),safety,explicit_reachable_states + bmc_z3,HOLDS,HOLDS,UNSAT,0;1;2;3;4;5,5,
+v0,P3,AG(alarm -> NOT door_open),safety,explicit_reachable_states + bmc_z3,HOLDS,HOLDS,UNSAT,0;1;2;3;4;5,5,
+v0,P4,AG(resetting -> admin_authorized),safety,explicit_reachable_states + bmc_z3,HOLDS,HOLDS,UNSAT,0;1;2;3;4;5,5,
+v0,P5,AG(resetting -> AF idle),liveness,ctl_least_fixed_point,VIOLATED,NOT_APPLICABLE,NOT_USED,NOT_APPLICABLE,NOT_APPLICABLE,s0 --admin_reset--> s5 --reset_retry--> s5; reset_step=1; loop_start=1
+v1,P1,AG(door_open -> (authenticated AND NOT locked_out)),safety,explicit_reachable_states + bmc_z3,HOLDS,HOLDS,UNSAT,0;1;2;3;4;5,5,
+v1,P2,AG(locked_out -> attempts_eq_3),safety,explicit_reachable_states + bmc_z3,HOLDS,HOLDS,UNSAT,0;1;2;3;4;5,5,
+v1,P3,AG(alarm -> NOT door_open),safety,explicit_reachable_states + bmc_z3,HOLDS,HOLDS,UNSAT,0;1;2;3;4;5,5,
+v1,P4,AG(resetting -> admin_authorized),safety,explicit_reachable_states + bmc_z3,HOLDS,HOLDS,UNSAT,0;1;2;3;4;5,5,
+v1,P5,AG(resetting -> AF idle),liveness,ctl_least_fixed_point,HOLDS,NOT_APPLICABLE,NOT_USED,NOT_APPLICABLE,NOT_APPLICABLE,

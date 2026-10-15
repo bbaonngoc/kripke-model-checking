@@ -1,0 +1,6 @@
+# Preserve the exact bytes of the accepted source and experimental evidence.
+# G3/G4 record SHA-256 of G2 snapshots; EOL conversion would invalidate them.
+# -text disables EOL conversion on every OS, even with core.autocrlf=true.
+* -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+*.pdf binary
+*.png binary

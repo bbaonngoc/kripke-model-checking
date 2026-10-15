@@ -1,0 +1,12 @@
+digraph SmartLock {
+graph [rankdir=TB, bgcolor="white", fontname="Arial", fontsize=15, labelloc=t, label="Counterexample P1 (v0)\nRed = violating edge.\nA=authenticated D=door B=alarm U=admin\nN=normal L=locked_out R=resetting; red=P1/P5 evidence", nodesep=0.45, ranksep=0.8, pad=0.2];
+node [shape=box, style="rounded,filled", fillcolor="white", color="#475569", fontname="Arial", fontsize=12];
+edge [fontname="Arial", fontsize=11, color="#64748b", arrowsize=0.7];
+subgraph cluster_v0 { label="v0"; color="#cbd5e1";
+"v0_s0" [label="s0  N f=0\nA=0 D=0 B=0 U=0", peripheries=2, color="#475569", fillcolor="white"];
+"v0_s3" [label="s3  N f=0\nA=0 D=1 B=0 U=0", peripheries=1, color="#b91c1c", fillcolor="#fff1f2"];
+start_v0 [shape=point, width=0.08, label=""];
+start_v0 -> "v0_s0" [label="initial", color="#334155"];
+"v0_s0" -> "v0_s3" [label="open_door", color="#b91c1c", fontcolor="#b91c1c", penwidth=2.2];
+}
+}

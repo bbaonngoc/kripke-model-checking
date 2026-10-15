@@ -1,0 +1,38 @@
+digraph SmartLock {
+graph [rankdir=TB, bgcolor="white", fontname="Arial", fontsize=15, labelloc=t, label="Admin Recovery: lockout + alarm example\nTwo real G2 paths. admin_reset requires admin_authenticated=True. Red\nloop is BUG-02.\nA=authenticated D=door B=alarm U=admin\nN=normal L=locked_out R=resetting; red=P1/P5 evidence", nodesep=0.45, ranksep=0.8, pad=0.2];
+node [shape=box, style="rounded,filled", fillcolor="white", color="#475569", fontname="Arial", fontsize=12];
+edge [fontname="Arial", fontsize=11, color="#64748b", arrowsize=0.7];
+subgraph cluster_v0 { label="v0"; color="#cbd5e1";
+"v0_s0" [label="s0  N f=0\nA=0 D=0 B=0 U=0", peripheries=2, color="#475569", fillcolor="white"];
+"v0_s2" [label="s2  N f=1\nA=0 D=0 B=0 U=0", peripheries=1, color="#475569", fillcolor="white"];
+"v0_s7" [label="s7  N f=2\nA=0 D=0 B=0 U=0", peripheries=1, color="#475569", fillcolor="white"];
+"v0_s12" [label="s12  L f=3\nA=0 D=0 B=0 U=0", peripheries=1, color="#475569", fillcolor="white"];
+"v0_s17" [label="s17  L f=3\nA=0 D=0 B=1 U=0", peripheries=1, color="#475569", fillcolor="white"];
+"v0_s20" [label="s20  R f=3\nA=0 D=0 B=1 U=1", peripheries=1, color="#b91c1c", fillcolor="#fff1f2"];
+start_v0 [shape=point, width=0.08, label=""];
+start_v0 -> "v0_s0" [label="initial", color="#334155"];
+"v0_s0" -> "v0_s2" [label="password_bad", color="#64748b", fontcolor="#334155", penwidth=1];
+"v0_s2" -> "v0_s7" [label="password_bad", color="#64748b", fontcolor="#334155", penwidth=1];
+"v0_s7" -> "v0_s12" [label="password_bad", color="#64748b", fontcolor="#334155", penwidth=1];
+"v0_s12" -> "v0_s17" [label="tamper", color="#64748b", fontcolor="#334155", penwidth=1];
+"v0_s17" -> "v0_s20" [label="admin_reset", color="#64748b", fontcolor="#334155", penwidth=1];
+"v0_s20" -> "v0_s0" [label="reset_complete", color="#64748b", fontcolor="#334155", penwidth=1];
+"v0_s20" -> "v0_s20" [label="reset_retry", color="#b91c1c", fontcolor="#b91c1c", penwidth=2.2];
+}
+subgraph cluster_v1 { label="v1"; color="#cbd5e1";
+"v1_s0" [label="s0  N f=0\nA=0 D=0 B=0 U=0", peripheries=2, color="#475569", fillcolor="white"];
+"v1_s2" [label="s2  N f=1\nA=0 D=0 B=0 U=0", peripheries=1, color="#475569", fillcolor="white"];
+"v1_s6" [label="s6  N f=2\nA=0 D=0 B=0 U=0", peripheries=1, color="#475569", fillcolor="white"];
+"v1_s10" [label="s10  L f=3\nA=0 D=0 B=0 U=0", peripheries=1, color="#475569", fillcolor="white"];
+"v1_s14" [label="s14  L f=3\nA=0 D=0 B=1 U=0", peripheries=1, color="#475569", fillcolor="white"];
+"v1_s17" [label="s17  R f=3\nA=0 D=0 B=1 U=1", peripheries=1, color="#475569", fillcolor="white"];
+start_v1 [shape=point, width=0.08, label=""];
+start_v1 -> "v1_s0" [label="initial", color="#334155"];
+"v1_s0" -> "v1_s2" [label="password_bad", color="#64748b", fontcolor="#334155", penwidth=1];
+"v1_s2" -> "v1_s6" [label="password_bad", color="#64748b", fontcolor="#334155", penwidth=1];
+"v1_s6" -> "v1_s10" [label="password_bad", color="#64748b", fontcolor="#334155", penwidth=1];
+"v1_s10" -> "v1_s14" [label="tamper", color="#64748b", fontcolor="#334155", penwidth=1];
+"v1_s14" -> "v1_s17" [label="admin_reset", color="#64748b", fontcolor="#334155", penwidth=1];
+"v1_s17" -> "v1_s0" [label="reset_complete", color="#64748b", fontcolor="#334155", penwidth=1];
+}
+}

@@ -1,0 +1,948 @@
+{
+  "stage": "G2",
+  "version": "v0",
+  "initial_states": [
+    "s0"
+  ],
+  "event_assumptions": {
+    "admin_reset": {
+      "admin_authenticated": true
+    }
+  },
+  "statistics": {
+    "states": 21,
+    "reachable_states": 21,
+    "event_transitions": 69,
+    "relation_pairs": 65,
+    "max_bfs_depth": 5
+  },
+  "structural_checks": {
+    "unique_state_values": true,
+    "initial_state_matches": true,
+    "toolkit_states_match": true,
+    "all_states_reachable": true,
+    "total_relation": true,
+    "labels_match_values": true,
+    "unique_event_transitions": true,
+    "deterministic_per_event": true,
+    "guards_and_actions_match": true,
+    "relation_matches_event_edges": true,
+    "bfs_paths_match_depths": true
+  },
+  "basic_invariants": {
+    "failed_attempts_in_range": {
+      "holds": true,
+      "violating_states": []
+    },
+    "locked_out_has_three_failures": {
+      "holds": true,
+      "violating_states": []
+    },
+    "alarm_keeps_door_closed": {
+      "holds": true,
+      "violating_states": []
+    },
+    "reset_has_admin_authorization": {
+      "holds": true,
+      "violating_states": []
+    }
+  },
+  "states": [
+    {
+      "id": "s0",
+      "authenticated": false,
+      "failed_attempts": 0,
+      "door_open": false,
+      "alarm": false,
+      "phase": "normal",
+      "admin_authorized": false,
+      "labels": [
+        "idle"
+      ],
+      "bfs_depth": 0
+    },
+    {
+      "id": "s1",
+      "authenticated": true,
+      "failed_attempts": 0,
+      "door_open": false,
+      "alarm": false,
+      "phase": "normal",
+      "admin_authorized": false,
+      "labels": [
+        "authenticated"
+      ],
+      "bfs_depth": 1
+    },
+    {
+      "id": "s2",
+      "authenticated": false,
+      "failed_attempts": 1,
+      "door_open": false,
+      "alarm": false,
+      "phase": "normal",
+      "admin_authorized": false,
+      "labels": [],
+      "bfs_depth": 1
+    },
+    {
+      "id": "s3",
+      "authenticated": false,
+      "failed_attempts": 0,
+      "door_open": true,
+      "alarm": false,
+      "phase": "normal",
+      "admin_authorized": false,
+      "labels": [
+        "door_open"
+      ],
+      "bfs_depth": 1
+    },
+    {
+      "id": "s4",
+      "authenticated": false,
+      "failed_attempts": 0,
+      "door_open": false,
+      "alarm": true,
+      "phase": "normal",
+      "admin_authorized": false,
+      "labels": [
+        "alarm"
+      ],
+      "bfs_depth": 1
+    },
+    {
+      "id": "s5",
+      "authenticated": false,
+      "failed_attempts": 0,
+      "door_open": false,
+      "alarm": false,
+      "phase": "resetting",
+      "admin_authorized": true,
+      "labels": [
+        "admin_authorized",
+        "resetting"
+      ],
+      "bfs_depth": 1
+    },
+    {
+      "id": "s6",
+      "authenticated": true,
+      "failed_attempts": 0,
+      "door_open": true,
+      "alarm": false,
+      "phase": "normal",
+      "admin_authorized": false,
+      "labels": [
+        "authenticated",
+        "door_open"
+      ],
+      "bfs_depth": 2
+    },
+    {
+      "id": "s7",
+      "authenticated": false,
+      "failed_attempts": 2,
+      "door_open": false,
+      "alarm": false,
+      "phase": "normal",
+      "admin_authorized": false,
+      "labels": [],
+      "bfs_depth": 2
+    },
+    {
+      "id": "s8",
+      "authenticated": false,
+      "failed_attempts": 1,
+      "door_open": true,
+      "alarm": false,
+      "phase": "normal",
+      "admin_authorized": false,
+      "labels": [
+        "door_open"
+      ],
+      "bfs_depth": 2
+    },
+    {
+      "id": "s9",
+      "authenticated": false,
+      "failed_attempts": 1,
+      "door_open": false,
+      "alarm": true,
+      "phase": "normal",
+      "admin_authorized": false,
+      "labels": [
+        "alarm"
+      ],
+      "bfs_depth": 2
+    },
+    {
+      "id": "s10",
+      "authenticated": false,
+      "failed_attempts": 1,
+      "door_open": false,
+      "alarm": false,
+      "phase": "resetting",
+      "admin_authorized": true,
+      "labels": [
+        "admin_authorized",
+        "resetting"
+      ],
+      "bfs_depth": 2
+    },
+    {
+      "id": "s11",
+      "authenticated": false,
+      "failed_attempts": 0,
+      "door_open": false,
+      "alarm": true,
+      "phase": "resetting",
+      "admin_authorized": true,
+      "labels": [
+        "admin_authorized",
+        "alarm",
+        "resetting"
+      ],
+      "bfs_depth": 2
+    },
+    {
+      "id": "s12",
+      "authenticated": false,
+      "failed_attempts": 3,
+      "door_open": false,
+      "alarm": false,
+      "phase": "locked_out",
+      "admin_authorized": false,
+      "labels": [
+        "attempts_eq_3",
+        "locked_out"
+      ],
+      "bfs_depth": 3
+    },
+    {
+      "id": "s13",
+      "authenticated": false,
+      "failed_attempts": 2,
+      "door_open": true,
+      "alarm": false,
+      "phase": "normal",
+      "admin_authorized": false,
+      "labels": [
+        "door_open"
+      ],
+      "bfs_depth": 3
+    },
+    {
+      "id": "s14",
+      "authenticated": false,
+      "failed_attempts": 2,
+      "door_open": false,
+      "alarm": true,
+      "phase": "normal",
+      "admin_authorized": false,
+      "labels": [
+        "alarm"
+      ],
+      "bfs_depth": 3
+    },
+    {
+      "id": "s15",
+      "authenticated": false,
+      "failed_attempts": 2,
+      "door_open": false,
+      "alarm": false,
+      "phase": "resetting",
+      "admin_authorized": true,
+      "labels": [
+        "admin_authorized",
+        "resetting"
+      ],
+      "bfs_depth": 3
+    },
+    {
+      "id": "s16",
+      "authenticated": false,
+      "failed_attempts": 1,
+      "door_open": false,
+      "alarm": true,
+      "phase": "resetting",
+      "admin_authorized": true,
+      "labels": [
+        "admin_authorized",
+        "alarm",
+        "resetting"
+      ],
+      "bfs_depth": 3
+    },
+    {
+      "id": "s17",
+      "authenticated": false,
+      "failed_attempts": 3,
+      "door_open": false,
+      "alarm": true,
+      "phase": "locked_out",
+      "admin_authorized": false,
+      "labels": [
+        "alarm",
+        "attempts_eq_3",
+        "locked_out"
+      ],
+      "bfs_depth": 4
+    },
+    {
+      "id": "s18",
+      "authenticated": false,
+      "failed_attempts": 3,
+      "door_open": false,
+      "alarm": false,
+      "phase": "resetting",
+      "admin_authorized": true,
+      "labels": [
+        "admin_authorized",
+        "attempts_eq_3",
+        "resetting"
+      ],
+      "bfs_depth": 4
+    },
+    {
+      "id": "s19",
+      "authenticated": false,
+      "failed_attempts": 2,
+      "door_open": false,
+      "alarm": true,
+      "phase": "resetting",
+      "admin_authorized": true,
+      "labels": [
+        "admin_authorized",
+        "alarm",
+        "resetting"
+      ],
+      "bfs_depth": 4
+    },
+    {
+      "id": "s20",
+      "authenticated": false,
+      "failed_attempts": 3,
+      "door_open": false,
+      "alarm": true,
+      "phase": "resetting",
+      "admin_authorized": true,
+      "labels": [
+        "admin_authorized",
+        "alarm",
+        "attempts_eq_3",
+        "resetting"
+      ],
+      "bfs_depth": 5
+    }
+  ],
+  "transitions": [
+    {
+      "source": "s0",
+      "event": "password_ok",
+      "target": "s1"
+    },
+    {
+      "source": "s0",
+      "event": "password_bad",
+      "target": "s2"
+    },
+    {
+      "source": "s0",
+      "event": "open_door",
+      "target": "s3"
+    },
+    {
+      "source": "s0",
+      "event": "tamper",
+      "target": "s4"
+    },
+    {
+      "source": "s0",
+      "event": "admin_reset",
+      "target": "s5"
+    },
+    {
+      "source": "s0",
+      "event": "wait",
+      "target": "s0"
+    },
+    {
+      "source": "s1",
+      "event": "open_door",
+      "target": "s6"
+    },
+    {
+      "source": "s1",
+      "event": "tamper",
+      "target": "s4"
+    },
+    {
+      "source": "s1",
+      "event": "admin_reset",
+      "target": "s5"
+    },
+    {
+      "source": "s1",
+      "event": "wait",
+      "target": "s1"
+    },
+    {
+      "source": "s2",
+      "event": "password_ok",
+      "target": "s1"
+    },
+    {
+      "source": "s2",
+      "event": "password_bad",
+      "target": "s7"
+    },
+    {
+      "source": "s2",
+      "event": "open_door",
+      "target": "s8"
+    },
+    {
+      "source": "s2",
+      "event": "tamper",
+      "target": "s9"
+    },
+    {
+      "source": "s2",
+      "event": "admin_reset",
+      "target": "s10"
+    },
+    {
+      "source": "s2",
+      "event": "wait",
+      "target": "s2"
+    },
+    {
+      "source": "s3",
+      "event": "close_door",
+      "target": "s0"
+    },
+    {
+      "source": "s3",
+      "event": "tamper",
+      "target": "s4"
+    },
+    {
+      "source": "s3",
+      "event": "admin_reset",
+      "target": "s5"
+    },
+    {
+      "source": "s3",
+      "event": "wait",
+      "target": "s3"
+    },
+    {
+      "source": "s4",
+      "event": "tamper",
+      "target": "s4"
+    },
+    {
+      "source": "s4",
+      "event": "admin_reset",
+      "target": "s11"
+    },
+    {
+      "source": "s4",
+      "event": "wait",
+      "target": "s4"
+    },
+    {
+      "source": "s5",
+      "event": "reset_complete",
+      "target": "s0"
+    },
+    {
+      "source": "s5",
+      "event": "reset_retry",
+      "target": "s5"
+    },
+    {
+      "source": "s6",
+      "event": "close_door",
+      "target": "s0"
+    },
+    {
+      "source": "s6",
+      "event": "tamper",
+      "target": "s4"
+    },
+    {
+      "source": "s6",
+      "event": "admin_reset",
+      "target": "s5"
+    },
+    {
+      "source": "s6",
+      "event": "wait",
+      "target": "s6"
+    },
+    {
+      "source": "s7",
+      "event": "password_ok",
+      "target": "s1"
+    },
+    {
+      "source": "s7",
+      "event": "password_bad",
+      "target": "s12"
+    },
+    {
+      "source": "s7",
+      "event": "open_door",
+      "target": "s13"
+    },
+    {
+      "source": "s7",
+      "event": "tamper",
+      "target": "s14"
+    },
+    {
+      "source": "s7",
+      "event": "admin_reset",
+      "target": "s15"
+    },
+    {
+      "source": "s7",
+      "event": "wait",
+      "target": "s7"
+    },
+    {
+      "source": "s8",
+      "event": "close_door",
+      "target": "s2"
+    },
+    {
+      "source": "s8",
+      "event": "tamper",
+      "target": "s9"
+    },
+    {
+      "source": "s8",
+      "event": "admin_reset",
+      "target": "s10"
+    },
+    {
+      "source": "s8",
+      "event": "wait",
+      "target": "s8"
+    },
+    {
+      "source": "s9",
+      "event": "tamper",
+      "target": "s9"
+    },
+    {
+      "source": "s9",
+      "event": "admin_reset",
+      "target": "s16"
+    },
+    {
+      "source": "s9",
+      "event": "wait",
+      "target": "s9"
+    },
+    {
+      "source": "s10",
+      "event": "reset_complete",
+      "target": "s0"
+    },
+    {
+      "source": "s10",
+      "event": "reset_retry",
+      "target": "s10"
+    },
+    {
+      "source": "s11",
+      "event": "reset_complete",
+      "target": "s0"
+    },
+    {
+      "source": "s11",
+      "event": "reset_retry",
+      "target": "s11"
+    },
+    {
+      "source": "s12",
+      "event": "tamper",
+      "target": "s17"
+    },
+    {
+      "source": "s12",
+      "event": "admin_reset",
+      "target": "s18"
+    },
+    {
+      "source": "s12",
+      "event": "wait",
+      "target": "s12"
+    },
+    {
+      "source": "s13",
+      "event": "close_door",
+      "target": "s7"
+    },
+    {
+      "source": "s13",
+      "event": "tamper",
+      "target": "s14"
+    },
+    {
+      "source": "s13",
+      "event": "admin_reset",
+      "target": "s15"
+    },
+    {
+      "source": "s13",
+      "event": "wait",
+      "target": "s13"
+    },
+    {
+      "source": "s14",
+      "event": "tamper",
+      "target": "s14"
+    },
+    {
+      "source": "s14",
+      "event": "admin_reset",
+      "target": "s19"
+    },
+    {
+      "source": "s14",
+      "event": "wait",
+      "target": "s14"
+    },
+    {
+      "source": "s15",
+      "event": "reset_complete",
+      "target": "s0"
+    },
+    {
+      "source": "s15",
+      "event": "reset_retry",
+      "target": "s15"
+    },
+    {
+      "source": "s16",
+      "event": "reset_complete",
+      "target": "s0"
+    },
+    {
+      "source": "s16",
+      "event": "reset_retry",
+      "target": "s16"
+    },
+    {
+      "source": "s17",
+      "event": "tamper",
+      "target": "s17"
+    },
+    {
+      "source": "s17",
+      "event": "admin_reset",
+      "target": "s20"
+    },
+    {
+      "source": "s17",
+      "event": "wait",
+      "target": "s17"
+    },
+    {
+      "source": "s18",
+      "event": "reset_complete",
+      "target": "s0"
+    },
+    {
+      "source": "s18",
+      "event": "reset_retry",
+      "target": "s18"
+    },
+    {
+      "source": "s19",
+      "event": "reset_complete",
+      "target": "s0"
+    },
+    {
+      "source": "s19",
+      "event": "reset_retry",
+      "target": "s19"
+    },
+    {
+      "source": "s20",
+      "event": "reset_complete",
+      "target": "s0"
+    },
+    {
+      "source": "s20",
+      "event": "reset_retry",
+      "target": "s20"
+    }
+  ],
+  "relation": [
+    {
+      "source": "s0",
+      "target": "s0"
+    },
+    {
+      "source": "s0",
+      "target": "s1"
+    },
+    {
+      "source": "s0",
+      "target": "s2"
+    },
+    {
+      "source": "s0",
+      "target": "s3"
+    },
+    {
+      "source": "s0",
+      "target": "s4"
+    },
+    {
+      "source": "s0",
+      "target": "s5"
+    },
+    {
+      "source": "s1",
+      "target": "s1"
+    },
+    {
+      "source": "s1",
+      "target": "s4"
+    },
+    {
+      "source": "s1",
+      "target": "s5"
+    },
+    {
+      "source": "s1",
+      "target": "s6"
+    },
+    {
+      "source": "s2",
+      "target": "s1"
+    },
+    {
+      "source": "s2",
+      "target": "s2"
+    },
+    {
+      "source": "s2",
+      "target": "s7"
+    },
+    {
+      "source": "s2",
+      "target": "s8"
+    },
+    {
+      "source": "s2",
+      "target": "s9"
+    },
+    {
+      "source": "s2",
+      "target": "s10"
+    },
+    {
+      "source": "s3",
+      "target": "s0"
+    },
+    {
+      "source": "s3",
+      "target": "s3"
+    },
+    {
+      "source": "s3",
+      "target": "s4"
+    },
+    {
+      "source": "s3",
+      "target": "s5"
+    },
+    {
+      "source": "s4",
+      "target": "s4"
+    },
+    {
+      "source": "s4",
+      "target": "s11"
+    },
+    {
+      "source": "s5",
+      "target": "s0"
+    },
+    {
+      "source": "s5",
+      "target": "s5"
+    },
+    {
+      "source": "s6",
+      "target": "s0"
+    },
+    {
+      "source": "s6",
+      "target": "s4"
+    },
+    {
+      "source": "s6",
+      "target": "s5"
+    },
+    {
+      "source": "s6",
+      "target": "s6"
+    },
+    {
+      "source": "s7",
+      "target": "s1"
+    },
+    {
+      "source": "s7",
+      "target": "s7"
+    },
+    {
+      "source": "s7",
+      "target": "s12"
+    },
+    {
+      "source": "s7",
+      "target": "s13"
+    },
+    {
+      "source": "s7",
+      "target": "s14"
+    },
+    {
+      "source": "s7",
+      "target": "s15"
+    },
+    {
+      "source": "s8",
+      "target": "s2"
+    },
+    {
+      "source": "s8",
+      "target": "s8"
+    },
+    {
+      "source": "s8",
+      "target": "s9"
+    },
+    {
+      "source": "s8",
+      "target": "s10"
+    },
+    {
+      "source": "s9",
+      "target": "s9"
+    },
+    {
+      "source": "s9",
+      "target": "s16"
+    },
+    {
+      "source": "s10",
+      "target": "s0"
+    },
+    {
+      "source": "s10",
+      "target": "s10"
+    },
+    {
+      "source": "s11",
+      "target": "s0"
+    },
+    {
+      "source": "s11",
+      "target": "s11"
+    },
+    {
+      "source": "s12",
+      "target": "s12"
+    },
+    {
+      "source": "s12",
+      "target": "s17"
+    },
+    {
+      "source": "s12",
+      "target": "s18"
+    },
+    {
+      "source": "s13",
+      "target": "s7"
+    },
+    {
+      "source": "s13",
+      "target": "s13"
+    },
+    {
+      "source": "s13",
+      "target": "s14"
+    },
+    {
+      "source": "s13",
+      "target": "s15"
+    },
+    {
+      "source": "s14",
+      "target": "s14"
+    },
+    {
+      "source": "s14",
+      "target": "s19"
+    },
+    {
+      "source": "s15",
+      "target": "s0"
+    },
+    {
+      "source": "s15",
+      "target": "s15"
+    },
+    {
+      "source": "s16",
+      "target": "s0"
+    },
+    {
+      "source": "s16",
+      "target": "s16"
+    },
+    {
+      "source": "s17",
+      "target": "s17"
+    },
+    {
+      "source": "s17",
+      "target": "s20"
+    },
+    {
+      "source": "s18",
+      "target": "s0"
+    },
+    {
+      "source": "s18",
+      "target": "s18"
+    },
+    {
+      "source": "s19",
+      "target": "s0"
+    },
+    {
+      "source": "s19",
+      "target": "s19"
+    },
+    {
+      "source": "s20",
+      "target": "s0"
+    },
+    {
+      "source": "s20",
+      "target": "s20"
+    }
+  ]
+}

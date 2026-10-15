@@ -1,0 +1,254 @@
+{
+  "stage": "G5",
+  "pdfs": [
+    {
+      "file": "report\\BaoCao_BTL_Kripke.pdf",
+      "sha256": "598909ba9103014c868867650a3092bc63f568a368dee175d6548367ee63b9cb",
+      "pages": 24,
+      "toc": [
+        {
+          "title": "Chương 1. Giới thiệu đề tài",
+          "page": 3,
+          "matched_pdf_heading": true
+        },
+        {
+          "title": "Chương 2. Đặc tả hệ thống và mô hình Kripke",
+          "page": 4,
+          "matched_pdf_heading": true
+        },
+        {
+          "title": "Chương 3. Đặc tả thuộc tính CTL",
+          "page": 8,
+          "matched_pdf_heading": true
+        },
+        {
+          "title": "Chương 4. Kiểm chứng bằng BMC và Z3",
+          "page": 11,
+          "matched_pdf_heading": true
+        },
+        {
+          "title": "Chương 5. Sinh mã và kết quả thực nghiệm",
+          "page": 15,
+          "matched_pdf_heading": true
+        },
+        {
+          "title": "Chương 6. Thảo luận và hạn chế",
+          "page": 19,
+          "matched_pdf_heading": true
+        },
+        {
+          "title": "Chương 7. Kết luận và tài liệu tham khảo",
+          "page": 20,
+          "matched_pdf_heading": true
+        },
+        {
+          "title": "Phụ lục A. Kripke tổng thể v0",
+          "page": 21,
+          "matched_pdf_heading": true
+        },
+        {
+          "title": "Phụ lục B. Kripke tổng thể v1",
+          "page": 22,
+          "matched_pdf_heading": true
+        },
+        {
+          "title": "Phụ lục C. Admin Recovery",
+          "page": 23,
+          "matched_pdf_heading": true
+        },
+        {
+          "title": "Phụ lục D. Lệnh chạy và chỉ mục bằng chứng",
+          "page": 24,
+          "matched_pdf_heading": true
+        }
+      ],
+      "text_extractable_vietnamese": true,
+      "all_five_formulas_present": true,
+      "all_used_font_files_embedded": true,
+      "fonts": [
+        "AAAAAA+ArialMT",
+        "AAAAAA+Cambria-0",
+        "AAAAAA+Consolas",
+        "AAAAAA+TimesNewRomanPS-BoldMT",
+        "AAAAAA+TimesNewRomanPS-ItalicMT",
+        "AAAAAA+TimesNewRomanPSMT"
+      ],
+      "body_12pt_times_characters": 23128,
+      "body_leading_pt": 18,
+      "outside_paper_safety_margins": [],
+      "rendered_png_pages": 24,
+      "visual_review": "All pages reviewed in rendered contact sheets; changed pages reviewed again at full size. No clipping, overlap, missing glyph or orphan spill page. Full vector graphs need zoom for detailed edge labels.",
+      "main_content_pdf_pages": [
+        3,
+        20
+      ],
+      "main_content_page_count": 18,
+      "source_figures": [
+        "counterexample_p1_v0",
+        "counterexample_p5_v0",
+        "authentication_lockout",
+        "door_alarm",
+        "kripke_v0",
+        "kripke_v1",
+        "admin_recovery"
+      ],
+      "rendered_page_png_sha256": {
+        "report-01.png": "7699b1a85827f98bccec047c0a40589bc73cbade1315020d85261515605fe162",
+        "report-02.png": "6199f6a85e0752f16c0f79afb7499ece2c993ea7a575891811fa1d29bbf369e8",
+        "report-03.png": "6ad824a3cb72bc192e29975cc76eda19064a1c3c36a58ac4e5879d90de203227",
+        "report-04.png": "acea8c8c6938d193226bacf6f42d5a8038e77d1705931564bf8ab6dba1bcd34e",
+        "report-05.png": "c6ccc4d70761b0559839a44f94b830864bdebbfa1a7cb23854bf6d53d6ab6f9a",
+        "report-06.png": "6753d6cc712cb4201871658605898d200939e49d8d21f652f47b950eab96facc",
+        "report-07.png": "b0000afcd38472dc1bc8322eed4ca39c842c686496fe696865b2d9bd0b02ec67",
+        "report-08.png": "274baadd3bbcd7df77af226237fe235c65d3829ba4db6256d04140f23f7925d0",
+        "report-09.png": "00949f62c49a86c347d1662561fadb79077d3c35e7de3b9c40e6906520e83975",
+        "report-10.png": "fd346d746810ddf3eca176e18b89a3f94688f32cba5c910313b1cab63884294d",
+        "report-11.png": "830f3acaa56d98bdb4df17d2b3fd1a94e1e08351ffe1bd100b22de45103997e8",
+        "report-12.png": "84dbc951493840a86e6d92e08ec2b9d15ea8d2fb1e3f9fa11d4494d71bff12a3",
+        "report-13.png": "8c88e392850128e598003db1cf2ab673e16c58a8589e5ebafe5cdd740a91ed34",
+        "report-14.png": "d27dffd379df263cac12372320fcb0b44e8e48e7e7ba4a5f65a6c4d6e907fea6",
+        "report-15.png": "4bb0db38d897e3a4cb272496ed52d25d87ba10bb6edec80050532a10088a13d4",
+        "report-16.png": "55c27cef3f06a73d03839f7981b5337be9adf33c9ed52c02b57f8f83fc513561",
+        "report-17.png": "c8af2744b196db42b4e9aac7898292a5ce6a94aa3b26bc2083fea38d7bf55207",
+        "report-18.png": "2919e43328fae43e832bd7573dd60edb84b99ffe150a3224d3d8a80c9c605740",
+        "report-19.png": "29a3e89d327668824d44ef3bdc80a353ff43c92164670d1f8d01fb254df15b67",
+        "report-20.png": "e694f1c3ae02d86cf6f501d0390c40fc5b6d13fb2726b88b886277325a3fc76b",
+        "report-21.png": "6e258e8be0508bb8661742b056a96e7b24e78c83e128e06c032489accbc22e55",
+        "report-22.png": "1f04f224b772180905436ff12661521261b01b4ecef5343fa8fea8af66a4c08f",
+        "report-23.png": "d2d1c7df36176c1b891c5ab1eed706a11a6aee4331dee354af9d984fc0aca705",
+        "report-24.png": "3b4011b54ef1babd9aecfc827b2d4101b43a8ac49ed277fcfe579ab96a38e886"
+      }
+    },
+    {
+      "file": "report\\TaiLieu_HocVaGiaiThichCode.pdf",
+      "sha256": "b6c50693d87bbe0b2f294d8cb35a7017dce6a194510f9e72524957ddc5a80ad8",
+      "pages": 22,
+      "toc": [
+        {
+          "title": "1. Đọc chương trình theo một luồng chung",
+          "page": 3,
+          "matched_pdf_heading": true
+        },
+        {
+          "title": "2. State và AP: dữ liệu nào thực sự được kiểm tra?",
+          "page": 4,
+          "matched_pdf_heading": true
+        },
+        {
+          "title": "3. Guard/action trong model.py::step",
+          "page": 5,
+          "matched_pdf_heading": true
+        },
+        {
+          "title": "4. BFS tạo states thật trong kripke.py",
+          "page": 7,
+          "matched_pdf_heading": true
+        },
+        {
+          "title": "5. Dữ liệu Kripke, snapshot và trace",
+          "page": 8,
+          "matched_pdf_heading": true
+        },
+        {
+          "title": "6. CTL trong code: đúng năm đặc tả",
+          "page": 9,
+          "matched_pdf_heading": true
+        },
+        {
+          "title": "7. AF fixed-point và lasso P5",
+          "page": 10,
+          "matched_pdf_heading": true
+        },
+        {
+          "title": "8. BMC: initial, domain và transition",
+          "page": 11,
+          "matched_pdf_heading": true
+        },
+        {
+          "title": "9. Z3 nhận gì và trả gì?",
+          "page": 12,
+          "matched_pdf_heading": true
+        },
+        {
+          "title": "10. Giải mã và replay counterexample",
+          "page": 13,
+          "matched_pdf_heading": true
+        },
+        {
+          "title": "11. Tăng bound, completeness và phạm vi kết luận",
+          "page": 14,
+          "matched_pdf_heading": true
+        },
+        {
+          "title": "12. Generator và chương trình Python độc lập",
+          "page": 15,
+          "matched_pdf_heading": true
+        },
+        {
+          "title": "13. Đối chiếu mã sinh, sơ đồ và kết quả thật",
+          "page": 16,
+          "matched_pdf_heading": true
+        },
+        {
+          "title": "14. Ôn tập, chạy lại và trách nhiệm nhóm",
+          "page": 17,
+          "matched_pdf_heading": true
+        },
+        {
+          "title": "15. Câu hỏi giảng viên: mô hình và đặc tả",
+          "page": 18,
+          "matched_pdf_heading": true
+        }
+      ],
+      "text_extractable_vietnamese": true,
+      "all_five_formulas_present": true,
+      "all_used_font_files_embedded": true,
+      "fonts": [
+        "AAAAAA+Cambria-0",
+        "AAAAAA+Consolas",
+        "AAAAAA+TimesNewRomanPS-BoldMT",
+        "AAAAAA+TimesNewRomanPS-ItalicMT",
+        "AAAAAA+TimesNewRomanPSMT"
+      ],
+      "body_12pt_times_characters": 23183,
+      "body_leading_pt": 18,
+      "outside_paper_safety_margins": [],
+      "rendered_png_pages": 22,
+      "visual_review": "All pages reviewed in rendered contact sheets; changed pages reviewed again at full size. No clipping, overlap, missing glyph or orphan spill page. Full vector graphs need zoom for detailed edge labels.",
+      "question_count": 25,
+      "rendered_page_png_sha256": {
+        "study-01.png": "8e1385c59ec944c3d60e2ee5777f4beafd5a0e37a570427e6e78d4bb14f50947",
+        "study-02.png": "080027335081b6afcaec0e8328c3c751210903659ab5eaefc6fc7189b31bb60a",
+        "study-03.png": "0f6a8012d3f3018e26ab37ee662f3c987acc2339cfcfcb2d7346eba57abc09fb",
+        "study-04.png": "d75e6c4732877f1151274504c8c467d75173bb35f248c8e7f4e2df06be1208be",
+        "study-05.png": "382a7e14b589d7f871d0989dd3b08e6bc6c0d7b98b3670b061a7f30c950db709",
+        "study-06.png": "21bd5240342df66ae642c03cdb692ed9ff1024d62d48572ce682aed357701ea5",
+        "study-07.png": "db1d5ae1ab53374ed14b996036af3a926147d5b98b377adb4ea7806c36068eec",
+        "study-08.png": "56f4c33624a2b7a4a9e126467eaf56ac4341a2d9d6f20e3cf8dc47df7fdc49dc",
+        "study-09.png": "9d61a2758ebffa438c6d0368b0f088f0a650692dd5672cdf6f1bea5d2eded798",
+        "study-10.png": "2763c37a3e0ab69389f51fb96e11eec68deeffbec9a74d56841ec6bab4edc743",
+        "study-11.png": "e51bdec20291f890f4d069b5912b421335f400a34559a207287781c5334edd69",
+        "study-12.png": "7a3869831ca19104f192a19339c9d4702e2bfc38c1ded8b263f259a491b1a457",
+        "study-13.png": "20c4de283e647bd140bc0f62c3a3b484f0001bd2517e84eaa7711933c62ba1e2",
+        "study-14.png": "bbb9f1a684a53bfdde77678b026ca31179a1b90318a5b09f9cf57067568f4165",
+        "study-15.png": "74d45ac9cdf71e3b5926ac28c1efaa276c412905bf42629b5ec538c0e837d4b7",
+        "study-16.png": "0714366f9350c73eb964fc9229deff0534ff92189edb3cdf5c396e0682c843c1",
+        "study-17.png": "8ded00bdaff59d08e9f312913bbfcd2d1ab1b0620adbad13844732efab862ad7",
+        "study-18.png": "dcb06c2552f78fc018e4b557103f138186f3402936807c1fa452c3df17711744",
+        "study-19.png": "e5f3366bc08e42de9564e752b072dd04d89d7ceba0623f18e912c341259e16da",
+        "study-20.png": "6a782e1c3135f2450d54e3e6a967f05cef713c70269dbe3b7719975c18f8f660",
+        "study-21.png": "338f4b57ac726049ba6f719bf13f29781e0743f779d3ca2ca41a31270d3701ad",
+        "study-22.png": "55f2628b2c6525da257a87c08d94364ac00816d774a48e13c600091daee353d4"
+      }
+    }
+  ],
+  "renderer": "Poppler pdftoppm; 100 dpi PNG",
+  "dependencies": {
+    "reportlab": "4.4.9",
+    "svglib": "2.3.0",
+    "pypdf": "6.10.0",
+    "pdfplumber": "0.11.9"
+  },
+  "body_layout": "A4, Times New Roman 12pt, leading 18pt; smaller tables/code; automatic TOC/bookmarks",
+  "status": "PASS"
+}

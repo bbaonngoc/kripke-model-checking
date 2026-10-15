@@ -1,0 +1,277 @@
+{
+  "stage": "G4",
+  "recorded_at": "2026-10-15T13:40:22.735941+07:00",
+  "protected_g2_g3_files": [
+    {
+      "file": "smartlock/model.py",
+      "before_sha256": "54e37e8f8d80ad2157fa9b86b1fc920d3b06703a0eeead1c27e89c7e3370811a",
+      "after_sha256": "54e37e8f8d80ad2157fa9b86b1fc920d3b06703a0eeead1c27e89c7e3370811a",
+      "unchanged": true
+    },
+    {
+      "file": "smartlock/kripke.py",
+      "before_sha256": "e78a852f78e741a181bdaf973a0dbe54f69e7f7afdfe26340e259aef7bf60dde",
+      "after_sha256": "e78a852f78e741a181bdaf973a0dbe54f69e7f7afdfe26340e259aef7bf60dde",
+      "unchanged": true
+    },
+    {
+      "file": "smartlock/ctl.py",
+      "before_sha256": "1101aeacf3d6c6b3a954d89be3e3c21c5d6cd4514bc80fe93d31bdfae6ce528a",
+      "after_sha256": "1101aeacf3d6c6b3a954d89be3e3c21c5d6cd4514bc80fe93d31bdfae6ce528a",
+      "unchanged": true
+    },
+    {
+      "file": "smartlock/bmc.py",
+      "before_sha256": "b3b3faec50b650298678188f80c6f432320b60a9d27177eb776ca09de26e9e2d",
+      "after_sha256": "b3b3faec50b650298678188f80c6f432320b60a9d27177eb776ca09de26e9e2d",
+      "unchanged": true
+    },
+    {
+      "file": "tests/test_model.py",
+      "before_sha256": "3a1377bc234e08b7d2c1c5ccaf58df9f5e53946069cddf1f8a6760def0f8ca27",
+      "after_sha256": "3a1377bc234e08b7d2c1c5ccaf58df9f5e53946069cddf1f8a6760def0f8ca27",
+      "unchanged": true
+    },
+    {
+      "file": "tests/test_kripke.py",
+      "before_sha256": "804fc26edbb3c6ede13390df16dfd5ee9bc754a8d2ac7fac00e4535240d12bbd",
+      "after_sha256": "804fc26edbb3c6ede13390df16dfd5ee9bc754a8d2ac7fac00e4535240d12bbd",
+      "unchanged": true
+    },
+    {
+      "file": "tests/test_verification.py",
+      "before_sha256": "eb965864498fd471b5e0b3b7446c4e684ec5535fac89928ff833d9545b4268aa",
+      "after_sha256": "eb965864498fd471b5e0b3b7446c4e684ec5535fac89928ff833d9545b4268aa",
+      "unchanged": true
+    },
+    {
+      "file": "results/v0/model.json",
+      "before_sha256": "1c2480b813aeb640d4cdcedeffd98521444945e3941fb0b56f0c765d752f7e26",
+      "after_sha256": "1c2480b813aeb640d4cdcedeffd98521444945e3941fb0b56f0c765d752f7e26",
+      "unchanged": true
+    },
+    {
+      "file": "results/v1/model.json",
+      "before_sha256": "d0d83b24961a5de7803f8c9023ebd9df6770528d2b2d7c0c6843bfd16cdde085",
+      "after_sha256": "d0d83b24961a5de7803f8c9023ebd9df6770528d2b2d7c0c6843bfd16cdde085",
+      "unchanged": true
+    },
+    {
+      "file": "results/v0/verification.json",
+      "before_sha256": "698a107b8d4464e227c45a25585eadcc2db678edd44853089dd383400ec0eb0b",
+      "after_sha256": "698a107b8d4464e227c45a25585eadcc2db678edd44853089dd383400ec0eb0b",
+      "unchanged": true
+    },
+    {
+      "file": "results/v1/verification.json",
+      "before_sha256": "bfb021ee1187d2e5fef9be4bdbb614f0bc75780945d356677a5e0eb43f516dc1",
+      "after_sha256": "bfb021ee1187d2e5fef9be4bdbb614f0bc75780945d356677a5e0eb43f516dc1",
+      "unchanged": true
+    },
+    {
+      "file": "results/comparison.csv",
+      "before_sha256": "390dc5432821a25db82d3be8a679f28350bf2bfeb03fbc2678efc1830b9a4d67",
+      "after_sha256": "390dc5432821a25db82d3be8a679f28350bf2bfeb03fbc2678efc1830b9a4d67",
+      "unchanged": true
+    }
+  ],
+  "all_protected_files_unchanged": true,
+  "test_logs": {
+    "pytest.log": {
+      "passed": 199,
+      "failed": 0,
+      "seconds": 6.3
+    },
+    "g1_reference_pytest.log": {
+      "passed": 4,
+      "failed": 0,
+      "seconds": 0.19
+    }
+  },
+  "total_relevant_pytest_passed": 203,
+  "total_relevant_pytest_failed": 0,
+  "exhaustive_comparisons": 702,
+  "accepted_cases": 207,
+  "rejected_cases": 495,
+  "distinct_model_event_edges_matched": 115,
+  "standalone_scenarios": [
+    {
+      "version": "v0",
+      "scenario": "authentication_door",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "version": "v1",
+      "scenario": "authentication_door",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "version": "v0",
+      "scenario": "lockout_alarm_recovery",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "version": "v1",
+      "scenario": "lockout_alarm_recovery",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "version": "v0",
+      "scenario": "P1_reproduced",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "version": "v1",
+      "scenario": "P1_blocked",
+      "returncode": 1,
+      "expected_returncode": 1,
+      "status": "PASS"
+    },
+    {
+      "version": "v0",
+      "scenario": "P5_cycle_repeated",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "version": "v1",
+      "scenario": "reset_retry_rejected",
+      "returncode": 1,
+      "expected_returncode": 1,
+      "status": "PASS"
+    },
+    {
+      "version": "v1",
+      "scenario": "reset_wait_rejected",
+      "returncode": 1,
+      "expected_returncode": 1,
+      "status": "PASS"
+    },
+    {
+      "version": "v1",
+      "scenario": "admin_required",
+      "returncode": 1,
+      "expected_returncode": 1,
+      "status": "PASS"
+    },
+    {
+      "version": "v1",
+      "scenario": "user_not_admin",
+      "returncode": 1,
+      "expected_returncode": 1,
+      "status": "PASS"
+    }
+  ],
+  "diagrams": [
+    {
+      "name": "kripke_v0",
+      "png": "results\\g4\\diagrams\\kripke_v0.png",
+      "svg": "results\\g4\\diagrams\\kripke_v0.svg",
+      "decoded_size": [
+        2304,
+        2256
+      ],
+      "png_decode": "PASS",
+      "svg_xml": "PASS",
+      "visual_review": "Opened with view_image; initial, state/event labels, layout and fault markings reviewed",
+      "render_warnings": []
+    },
+    {
+      "name": "kripke_v1",
+      "png": "results\\g4\\diagrams\\kripke_v1.png",
+      "svg": "results\\g4\\diagrams\\kripke_v1.svg",
+      "decoded_size": [
+        2311,
+        1769
+      ],
+      "png_decode": "PASS",
+      "svg_xml": "PASS",
+      "visual_review": "Opened with view_image; initial, state/event labels, layout and fault markings reviewed",
+      "render_warnings": []
+    },
+    {
+      "name": "authentication_lockout",
+      "png": "results\\g4\\diagrams\\authentication_lockout.png",
+      "svg": "results\\g4\\diagrams\\authentication_lockout.svg",
+      "decoded_size": [
+        816,
+        1051
+      ],
+      "png_decode": "PASS",
+      "svg_xml": "PASS",
+      "visual_review": "Opened with view_image; initial, state/event labels, layout and fault markings reviewed",
+      "render_warnings": []
+    },
+    {
+      "name": "door_alarm",
+      "png": "results\\g4\\diagrams\\door_alarm.png",
+      "svg": "results\\g4\\diagrams\\door_alarm.svg",
+      "decoded_size": [
+        807,
+        1051
+      ],
+      "png_decode": "PASS",
+      "svg_xml": "PASS",
+      "visual_review": "Opened with view_image; initial, state/event labels, layout and fault markings reviewed",
+      "render_warnings": []
+    },
+    {
+      "name": "admin_recovery",
+      "png": "results\\g4\\diagrams\\admin_recovery.png",
+      "svg": "results\\g4\\diagrams\\admin_recovery.svg",
+      "decoded_size": [
+        913,
+        1411
+      ],
+      "png_decode": "PASS",
+      "svg_xml": "PASS",
+      "visual_review": "Opened with view_image; initial, state/event labels, layout and fault markings reviewed",
+      "render_warnings": []
+    },
+    {
+      "name": "counterexample_p1_v0",
+      "png": "results\\g4\\diagrams\\counterexample_p1_v0.png",
+      "svg": "results\\g4\\diagrams\\counterexample_p1_v0.svg",
+      "decoded_size": [
+        716,
+        661
+      ],
+      "png_decode": "PASS",
+      "svg_xml": "PASS",
+      "visual_review": "Opened with view_image; initial, state/event labels, layout and fault markings reviewed",
+      "render_warnings": []
+    },
+    {
+      "name": "counterexample_p5_v0",
+      "png": "results\\g4\\diagrams\\counterexample_p5_v0.png",
+      "svg": "results\\g4\\diagrams\\counterexample_p5_v0.svg",
+      "decoded_size": [
+        772,
+        691
+      ],
+      "png_decode": "PASS",
+      "svg_xml": "PASS",
+      "visual_review": "Opened with view_image; initial, state/event labels, layout and fault markings reviewed",
+      "render_warnings": []
+    }
+  ],
+  "g4_command_reuses_saved_g3_results_without_solver_call": true,
+  "new_artifact_folders_contain_no_pdf": true,
+  "remaining_limitations": [
+    "Full graph diagrams need SVG zoom or a large layout; functional slices aid presentation.",
+    "Simulator uses abstract discrete events; reset_complete must be delivered by the caller, with no real-time scheduler.",
+    "Graphviz dot must be supplied to regenerate diagrams or run rendering tests."
+  ],
+  "next_stage": "Stop after G4; G5 requires user approval."
+}

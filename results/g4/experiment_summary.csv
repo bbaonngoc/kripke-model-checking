@@ -1,0 +1,11 @@
+﻿version,property,formula,states,reachable_states,event_transitions,relation_pairs,max_bfs_depth,method,ctl_status,bmc_status,bounds,counterexample,generated_audit,cases_checked,distinct_edges_matched,accepted_cases,rejected_cases
+v0,P1,AG(door_open -> (authenticated AND NOT locked_out)),21,21,69,65,5,explicit_reachable_states + bmc_z3,VIOLATED,VIOLATED,0;1,s0 --open_door--> s3,PASS,378,69,125,253
+v0,P2,AG(locked_out -> attempts_eq_3),21,21,69,65,5,explicit_reachable_states + bmc_z3,HOLDS,HOLDS,0;1;2;3;4;5,,PASS,378,69,125,253
+v0,P3,AG(alarm -> NOT door_open),21,21,69,65,5,explicit_reachable_states + bmc_z3,HOLDS,HOLDS,0;1;2;3;4;5,,PASS,378,69,125,253
+v0,P4,AG(resetting -> admin_authorized),21,21,69,65,5,explicit_reachable_states + bmc_z3,HOLDS,HOLDS,0;1;2;3;4;5,,PASS,378,69,125,253
+v0,P5,AG(resetting -> AF idle),21,21,69,65,5,ctl_least_fixed_point,VIOLATED,NOT_APPLICABLE,,s0 --admin_reset--> s5 --reset_retry--> s5; loop_start=1,PASS,378,69,125,253
+v1,P1,AG(door_open -> (authenticated AND NOT locked_out)),18,18,46,42,5,explicit_reachable_states + bmc_z3,HOLDS,HOLDS,0;1;2;3;4;5,,PASS,324,46,82,242
+v1,P2,AG(locked_out -> attempts_eq_3),18,18,46,42,5,explicit_reachable_states + bmc_z3,HOLDS,HOLDS,0;1;2;3;4;5,,PASS,324,46,82,242
+v1,P3,AG(alarm -> NOT door_open),18,18,46,42,5,explicit_reachable_states + bmc_z3,HOLDS,HOLDS,0;1;2;3;4;5,,PASS,324,46,82,242
+v1,P4,AG(resetting -> admin_authorized),18,18,46,42,5,explicit_reachable_states + bmc_z3,HOLDS,HOLDS,0;1;2;3;4;5,,PASS,324,46,82,242
+v1,P5,AG(resetting -> AF idle),18,18,46,42,5,ctl_least_fixed_point,HOLDS,NOT_APPLICABLE,,,PASS,324,46,82,242

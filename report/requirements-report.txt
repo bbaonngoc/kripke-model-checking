@@ -1,0 +1,3 @@
+# Chỉ để biên soạn PDF; chương trình Smart Lock không cần hai package này.
+reportlab
+svglib

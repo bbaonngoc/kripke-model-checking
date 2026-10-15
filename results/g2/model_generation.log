@@ -1,0 +1,7 @@
+v0: states=21, reachable=21, event_transitions=69, |R|=65, max_bfs_depth=5
+  Structural checks: 11 passed; basic data invariants: 4 passed
+  JSON: D:\PersonalProject\kripke-model-checking\results\v0\model.json
+v1: states=18, reachable=18, event_transitions=46, |R|=42, max_bfs_depth=5
+  Structural checks: 11 passed; basic data invariants: 4 passed
+  JSON: D:\PersonalProject\kripke-model-checking\results\v1\model.json
+G2 only: no CTL/BMC verification has been run.

@@ -1,0 +1,1286 @@
+{
+  "stage": "G4",
+  "versions": {
+    "v0": {
+      "g2_statistics": {
+        "states": 21,
+        "reachable_states": 21,
+        "event_transitions": 69,
+        "relation_pairs": 65,
+        "max_bfs_depth": 5
+      },
+      "g3_solver_outcomes": {
+        "SAT": 1,
+        "UNSAT": 19,
+        "UNKNOWN": 0
+      },
+      "source_model_sha256": "1c2480b813aeb640d4cdcedeffd98521444945e3941fb0b56f0c765d752f7e26",
+      "source_verification_sha256": "698a107b8d4464e227c45a25585eadcc2db678edd44853089dd383400ec0eb0b",
+      "program": "D:\\PersonalProject\\kripke-model-checking\\generated\\v0\\smart_lock.py",
+      "generated_checks": {
+        "status": "PASS",
+        "states_checked": 21,
+        "event_count": 9,
+        "admin_contexts": [
+          false,
+          true
+        ],
+        "cases_checked": 378,
+        "accepted_cases": 125,
+        "rejected_cases": 253,
+        "distinct_edges_matched": 69,
+        "initial_and_state_values_match": true,
+        "generated_sha256": "099fa62febef4c8afba2b498e025ed3af8e44243df6d0aba2e3901af17dca2c7",
+        "standalone_execution": {
+          "command": [
+            "C:\\Users\\ADMIN\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+            "-I",
+            "-S",
+            "D:\\PersonalProject\\kripke-model-checking\\generated\\v0\\smart_lock.py",
+            "--events",
+            "password_ok",
+            "open_door"
+          ],
+          "returncode": 0,
+          "stdout": "step 0 s0: {\"authenticated\": false, \"failed_attempts\": 0, \"door_open\": false, \"alarm\": false, \"phase\": \"normal\", \"admin_authorized\": false}\nstep 1 --password_ok--> s1: {\"authenticated\": true, \"failed_attempts\": 0, \"door_open\": false, \"alarm\": false, \"phase\": \"normal\", \"admin_authorized\": false}\nstep 2 --open_door--> s6: {\"authenticated\": true, \"failed_attempts\": 0, \"door_open\": true, \"alarm\": false, \"phase\": \"normal\", \"admin_authorized\": false}\n",
+          "stderr": ""
+        }
+      },
+      "properties": {
+        "P1": {
+          "formula": "AG(door_open -> (authenticated AND NOT locked_out))",
+          "method": "explicit_reachable_states + bmc_z3",
+          "ctl_status": "VIOLATED",
+          "bmc_status": "VIOLATED",
+          "checked_bounds": [
+            0,
+            1
+          ],
+          "counterexample": {
+            "property": "P1",
+            "kind": "finite",
+            "steps": [
+              {
+                "step": 0,
+                "state_id": "s0",
+                "state": {
+                  "authenticated": false,
+                  "failed_attempts": 0,
+                  "door_open": false,
+                  "alarm": false,
+                  "phase": "normal",
+                  "admin_authorized": false
+                },
+                "labels": [
+                  "idle"
+                ],
+                "incoming_event": null,
+                "admin_authenticated": false
+              },
+              {
+                "step": 1,
+                "state_id": "s3",
+                "state": {
+                  "authenticated": false,
+                  "failed_attempts": 0,
+                  "door_open": true,
+                  "alarm": false,
+                  "phase": "normal",
+                  "admin_authorized": false
+                },
+                "labels": [
+                  "door_open"
+                ],
+                "incoming_event": "open_door",
+                "admin_authenticated": false
+              }
+            ],
+            "violation_step": 1
+          }
+        },
+        "P2": {
+          "formula": "AG(locked_out -> attempts_eq_3)",
+          "method": "explicit_reachable_states + bmc_z3",
+          "ctl_status": "HOLDS",
+          "bmc_status": "HOLDS",
+          "checked_bounds": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "counterexample": null
+        },
+        "P3": {
+          "formula": "AG(alarm -> NOT door_open)",
+          "method": "explicit_reachable_states + bmc_z3",
+          "ctl_status": "HOLDS",
+          "bmc_status": "HOLDS",
+          "checked_bounds": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "counterexample": null
+        },
+        "P4": {
+          "formula": "AG(resetting -> admin_authorized)",
+          "method": "explicit_reachable_states + bmc_z3",
+          "ctl_status": "HOLDS",
+          "bmc_status": "HOLDS",
+          "checked_bounds": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "counterexample": null
+        },
+        "P5": {
+          "formula": "AG(resetting -> AF idle)",
+          "method": "ctl_least_fixed_point",
+          "ctl_status": "VIOLATED",
+          "bmc_status": "NOT_APPLICABLE",
+          "checked_bounds": [],
+          "counterexample": {
+            "property": "P5",
+            "kind": "lasso",
+            "steps": [
+              {
+                "step": 0,
+                "state_id": "s0",
+                "state": {
+                  "authenticated": false,
+                  "failed_attempts": 0,
+                  "door_open": false,
+                  "alarm": false,
+                  "phase": "normal",
+                  "admin_authorized": false
+                },
+                "labels": [
+                  "idle"
+                ],
+                "incoming_event": null,
+                "admin_authenticated": false
+              },
+              {
+                "step": 1,
+                "state_id": "s5",
+                "state": {
+                  "authenticated": false,
+                  "failed_attempts": 0,
+                  "door_open": false,
+                  "alarm": false,
+                  "phase": "resetting",
+                  "admin_authorized": true
+                },
+                "labels": [
+                  "admin_authorized",
+                  "resetting"
+                ],
+                "incoming_event": "admin_reset",
+                "admin_authenticated": true
+              },
+              {
+                "step": 2,
+                "state_id": "s5",
+                "state": {
+                  "authenticated": false,
+                  "failed_attempts": 0,
+                  "door_open": false,
+                  "alarm": false,
+                  "phase": "resetting",
+                  "admin_authorized": true
+                },
+                "labels": [
+                  "admin_authorized",
+                  "resetting"
+                ],
+                "incoming_event": "reset_retry",
+                "admin_authenticated": false
+              }
+            ],
+            "reset_step": 1,
+            "loop_start": 1
+          }
+        }
+      }
+    },
+    "v1": {
+      "g2_statistics": {
+        "states": 18,
+        "reachable_states": 18,
+        "event_transitions": 46,
+        "relation_pairs": 42,
+        "max_bfs_depth": 5
+      },
+      "g3_solver_outcomes": {
+        "SAT": 0,
+        "UNSAT": 24,
+        "UNKNOWN": 0
+      },
+      "source_model_sha256": "d0d83b24961a5de7803f8c9023ebd9df6770528d2b2d7c0c6843bfd16cdde085",
+      "source_verification_sha256": "bfb021ee1187d2e5fef9be4bdbb614f0bc75780945d356677a5e0eb43f516dc1",
+      "program": "D:\\PersonalProject\\kripke-model-checking\\generated\\v1\\smart_lock.py",
+      "generated_checks": {
+        "status": "PASS",
+        "states_checked": 18,
+        "event_count": 9,
+        "admin_contexts": [
+          false,
+          true
+        ],
+        "cases_checked": 324,
+        "accepted_cases": 82,
+        "rejected_cases": 242,
+        "distinct_edges_matched": 46,
+        "initial_and_state_values_match": true,
+        "generated_sha256": "c53b5e5235a3d02b99b182f81113401117ffe5a8fa9f062c3d5ed33f8b84bbd3",
+        "standalone_execution": {
+          "command": [
+            "C:\\Users\\ADMIN\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+            "-I",
+            "-S",
+            "D:\\PersonalProject\\kripke-model-checking\\generated\\v1\\smart_lock.py",
+            "--events",
+            "password_ok",
+            "open_door"
+          ],
+          "returncode": 0,
+          "stdout": "step 0 s0: {\"authenticated\": false, \"failed_attempts\": 0, \"door_open\": false, \"alarm\": false, \"phase\": \"normal\", \"admin_authorized\": false}\nstep 1 --password_ok--> s1: {\"authenticated\": true, \"failed_attempts\": 0, \"door_open\": false, \"alarm\": false, \"phase\": \"normal\", \"admin_authorized\": false}\nstep 2 --open_door--> s5: {\"authenticated\": true, \"failed_attempts\": 0, \"door_open\": true, \"alarm\": false, \"phase\": \"normal\", \"admin_authorized\": false}\n",
+          "stderr": ""
+        }
+      },
+      "properties": {
+        "P1": {
+          "formula": "AG(door_open -> (authenticated AND NOT locked_out))",
+          "method": "explicit_reachable_states + bmc_z3",
+          "ctl_status": "HOLDS",
+          "bmc_status": "HOLDS",
+          "checked_bounds": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "counterexample": null
+        },
+        "P2": {
+          "formula": "AG(locked_out -> attempts_eq_3)",
+          "method": "explicit_reachable_states + bmc_z3",
+          "ctl_status": "HOLDS",
+          "bmc_status": "HOLDS",
+          "checked_bounds": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "counterexample": null
+        },
+        "P3": {
+          "formula": "AG(alarm -> NOT door_open)",
+          "method": "explicit_reachable_states + bmc_z3",
+          "ctl_status": "HOLDS",
+          "bmc_status": "HOLDS",
+          "checked_bounds": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "counterexample": null
+        },
+        "P4": {
+          "formula": "AG(resetting -> admin_authorized)",
+          "method": "explicit_reachable_states + bmc_z3",
+          "ctl_status": "HOLDS",
+          "bmc_status": "HOLDS",
+          "checked_bounds": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "counterexample": null
+        },
+        "P5": {
+          "formula": "AG(resetting -> AF idle)",
+          "method": "ctl_least_fixed_point",
+          "ctl_status": "HOLDS",
+          "bmc_status": "NOT_APPLICABLE",
+          "checked_bounds": [],
+          "counterexample": null
+        }
+      }
+    }
+  },
+  "diagrams": [
+    {
+      "name": "kripke_v0",
+      "compact": true,
+      "title": "Smart Lock v0: full reachable Kripke",
+      "note": "S=21; event edges=69; R pairs=65. Node values: state_legend.csv",
+      "parts": [
+        {
+          "version": "v0",
+          "state_ids": [
+            "s0",
+            "s1",
+            "s2",
+            "s3",
+            "s4",
+            "s5",
+            "s6",
+            "s7",
+            "s8",
+            "s9",
+            "s10",
+            "s11",
+            "s12",
+            "s13",
+            "s14",
+            "s15",
+            "s16",
+            "s17",
+            "s18",
+            "s19",
+            "s20"
+          ],
+          "edges": [
+            {
+              "source": "s0",
+              "event": "password_ok",
+              "target": "s1"
+            },
+            {
+              "source": "s0",
+              "event": "password_bad",
+              "target": "s2"
+            },
+            {
+              "source": "s0",
+              "event": "open_door",
+              "target": "s3"
+            },
+            {
+              "source": "s0",
+              "event": "tamper",
+              "target": "s4"
+            },
+            {
+              "source": "s0",
+              "event": "admin_reset",
+              "target": "s5"
+            },
+            {
+              "source": "s0",
+              "event": "wait",
+              "target": "s0"
+            },
+            {
+              "source": "s1",
+              "event": "open_door",
+              "target": "s6"
+            },
+            {
+              "source": "s1",
+              "event": "tamper",
+              "target": "s4"
+            },
+            {
+              "source": "s1",
+              "event": "admin_reset",
+              "target": "s5"
+            },
+            {
+              "source": "s1",
+              "event": "wait",
+              "target": "s1"
+            },
+            {
+              "source": "s2",
+              "event": "password_ok",
+              "target": "s1"
+            },
+            {
+              "source": "s2",
+              "event": "password_bad",
+              "target": "s7"
+            },
+            {
+              "source": "s2",
+              "event": "open_door",
+              "target": "s8"
+            },
+            {
+              "source": "s2",
+              "event": "tamper",
+              "target": "s9"
+            },
+            {
+              "source": "s2",
+              "event": "admin_reset",
+              "target": "s10"
+            },
+            {
+              "source": "s2",
+              "event": "wait",
+              "target": "s2"
+            },
+            {
+              "source": "s3",
+              "event": "close_door",
+              "target": "s0"
+            },
+            {
+              "source": "s3",
+              "event": "tamper",
+              "target": "s4"
+            },
+            {
+              "source": "s3",
+              "event": "admin_reset",
+              "target": "s5"
+            },
+            {
+              "source": "s3",
+              "event": "wait",
+              "target": "s3"
+            },
+            {
+              "source": "s4",
+              "event": "tamper",
+              "target": "s4"
+            },
+            {
+              "source": "s4",
+              "event": "admin_reset",
+              "target": "s11"
+            },
+            {
+              "source": "s4",
+              "event": "wait",
+              "target": "s4"
+            },
+            {
+              "source": "s5",
+              "event": "reset_complete",
+              "target": "s0"
+            },
+            {
+              "source": "s5",
+              "event": "reset_retry",
+              "target": "s5"
+            },
+            {
+              "source": "s6",
+              "event": "close_door",
+              "target": "s0"
+            },
+            {
+              "source": "s6",
+              "event": "tamper",
+              "target": "s4"
+            },
+            {
+              "source": "s6",
+              "event": "admin_reset",
+              "target": "s5"
+            },
+            {
+              "source": "s6",
+              "event": "wait",
+              "target": "s6"
+            },
+            {
+              "source": "s7",
+              "event": "password_ok",
+              "target": "s1"
+            },
+            {
+              "source": "s7",
+              "event": "password_bad",
+              "target": "s12"
+            },
+            {
+              "source": "s7",
+              "event": "open_door",
+              "target": "s13"
+            },
+            {
+              "source": "s7",
+              "event": "tamper",
+              "target": "s14"
+            },
+            {
+              "source": "s7",
+              "event": "admin_reset",
+              "target": "s15"
+            },
+            {
+              "source": "s7",
+              "event": "wait",
+              "target": "s7"
+            },
+            {
+              "source": "s8",
+              "event": "close_door",
+              "target": "s2"
+            },
+            {
+              "source": "s8",
+              "event": "tamper",
+              "target": "s9"
+            },
+            {
+              "source": "s8",
+              "event": "admin_reset",
+              "target": "s10"
+            },
+            {
+              "source": "s8",
+              "event": "wait",
+              "target": "s8"
+            },
+            {
+              "source": "s9",
+              "event": "tamper",
+              "target": "s9"
+            },
+            {
+              "source": "s9",
+              "event": "admin_reset",
+              "target": "s16"
+            },
+            {
+              "source": "s9",
+              "event": "wait",
+              "target": "s9"
+            },
+            {
+              "source": "s10",
+              "event": "reset_complete",
+              "target": "s0"
+            },
+            {
+              "source": "s10",
+              "event": "reset_retry",
+              "target": "s10"
+            },
+            {
+              "source": "s11",
+              "event": "reset_complete",
+              "target": "s0"
+            },
+            {
+              "source": "s11",
+              "event": "reset_retry",
+              "target": "s11"
+            },
+            {
+              "source": "s12",
+              "event": "tamper",
+              "target": "s17"
+            },
+            {
+              "source": "s12",
+              "event": "admin_reset",
+              "target": "s18"
+            },
+            {
+              "source": "s12",
+              "event": "wait",
+              "target": "s12"
+            },
+            {
+              "source": "s13",
+              "event": "close_door",
+              "target": "s7"
+            },
+            {
+              "source": "s13",
+              "event": "tamper",
+              "target": "s14"
+            },
+            {
+              "source": "s13",
+              "event": "admin_reset",
+              "target": "s15"
+            },
+            {
+              "source": "s13",
+              "event": "wait",
+              "target": "s13"
+            },
+            {
+              "source": "s14",
+              "event": "tamper",
+              "target": "s14"
+            },
+            {
+              "source": "s14",
+              "event": "admin_reset",
+              "target": "s19"
+            },
+            {
+              "source": "s14",
+              "event": "wait",
+              "target": "s14"
+            },
+            {
+              "source": "s15",
+              "event": "reset_complete",
+              "target": "s0"
+            },
+            {
+              "source": "s15",
+              "event": "reset_retry",
+              "target": "s15"
+            },
+            {
+              "source": "s16",
+              "event": "reset_complete",
+              "target": "s0"
+            },
+            {
+              "source": "s16",
+              "event": "reset_retry",
+              "target": "s16"
+            },
+            {
+              "source": "s17",
+              "event": "tamper",
+              "target": "s17"
+            },
+            {
+              "source": "s17",
+              "event": "admin_reset",
+              "target": "s20"
+            },
+            {
+              "source": "s17",
+              "event": "wait",
+              "target": "s17"
+            },
+            {
+              "source": "s18",
+              "event": "reset_complete",
+              "target": "s0"
+            },
+            {
+              "source": "s18",
+              "event": "reset_retry",
+              "target": "s18"
+            },
+            {
+              "source": "s19",
+              "event": "reset_complete",
+              "target": "s0"
+            },
+            {
+              "source": "s19",
+              "event": "reset_retry",
+              "target": "s19"
+            },
+            {
+              "source": "s20",
+              "event": "reset_complete",
+              "target": "s0"
+            },
+            {
+              "source": "s20",
+              "event": "reset_retry",
+              "target": "s20"
+            }
+          ]
+        }
+      ],
+      "svg": "D:\\PersonalProject\\kripke-model-checking\\results\\g4\\diagrams\\kripke_v0.svg",
+      "png": "D:\\PersonalProject\\kripke-model-checking\\results\\g4\\diagrams\\kripke_v0.png",
+      "dot": "D:\\PersonalProject\\kripke-model-checking\\results\\g4\\diagrams\\kripke_v0.dot",
+      "png_size": [
+        2304,
+        2256
+      ],
+      "render_warnings": []
+    },
+    {
+      "name": "kripke_v1",
+      "compact": true,
+      "title": "Smart Lock v1: full reachable Kripke",
+      "note": "S=18; event edges=46; R pairs=42. Node values: state_legend.csv",
+      "parts": [
+        {
+          "version": "v1",
+          "state_ids": [
+            "s0",
+            "s1",
+            "s2",
+            "s3",
+            "s4",
+            "s5",
+            "s6",
+            "s7",
+            "s8",
+            "s9",
+            "s10",
+            "s11",
+            "s12",
+            "s13",
+            "s14",
+            "s15",
+            "s16",
+            "s17"
+          ],
+          "edges": [
+            {
+              "source": "s0",
+              "event": "password_ok",
+              "target": "s1"
+            },
+            {
+              "source": "s0",
+              "event": "password_bad",
+              "target": "s2"
+            },
+            {
+              "source": "s0",
+              "event": "tamper",
+              "target": "s3"
+            },
+            {
+              "source": "s0",
+              "event": "admin_reset",
+              "target": "s4"
+            },
+            {
+              "source": "s0",
+              "event": "wait",
+              "target": "s0"
+            },
+            {
+              "source": "s1",
+              "event": "open_door",
+              "target": "s5"
+            },
+            {
+              "source": "s1",
+              "event": "tamper",
+              "target": "s3"
+            },
+            {
+              "source": "s1",
+              "event": "admin_reset",
+              "target": "s4"
+            },
+            {
+              "source": "s1",
+              "event": "wait",
+              "target": "s1"
+            },
+            {
+              "source": "s2",
+              "event": "password_ok",
+              "target": "s1"
+            },
+            {
+              "source": "s2",
+              "event": "password_bad",
+              "target": "s6"
+            },
+            {
+              "source": "s2",
+              "event": "tamper",
+              "target": "s7"
+            },
+            {
+              "source": "s2",
+              "event": "admin_reset",
+              "target": "s8"
+            },
+            {
+              "source": "s2",
+              "event": "wait",
+              "target": "s2"
+            },
+            {
+              "source": "s3",
+              "event": "tamper",
+              "target": "s3"
+            },
+            {
+              "source": "s3",
+              "event": "admin_reset",
+              "target": "s9"
+            },
+            {
+              "source": "s3",
+              "event": "wait",
+              "target": "s3"
+            },
+            {
+              "source": "s4",
+              "event": "reset_complete",
+              "target": "s0"
+            },
+            {
+              "source": "s5",
+              "event": "close_door",
+              "target": "s0"
+            },
+            {
+              "source": "s5",
+              "event": "tamper",
+              "target": "s3"
+            },
+            {
+              "source": "s5",
+              "event": "admin_reset",
+              "target": "s4"
+            },
+            {
+              "source": "s5",
+              "event": "wait",
+              "target": "s5"
+            },
+            {
+              "source": "s6",
+              "event": "password_ok",
+              "target": "s1"
+            },
+            {
+              "source": "s6",
+              "event": "password_bad",
+              "target": "s10"
+            },
+            {
+              "source": "s6",
+              "event": "tamper",
+              "target": "s11"
+            },
+            {
+              "source": "s6",
+              "event": "admin_reset",
+              "target": "s12"
+            },
+            {
+              "source": "s6",
+              "event": "wait",
+              "target": "s6"
+            },
+            {
+              "source": "s7",
+              "event": "tamper",
+              "target": "s7"
+            },
+            {
+              "source": "s7",
+              "event": "admin_reset",
+              "target": "s13"
+            },
+            {
+              "source": "s7",
+              "event": "wait",
+              "target": "s7"
+            },
+            {
+              "source": "s8",
+              "event": "reset_complete",
+              "target": "s0"
+            },
+            {
+              "source": "s9",
+              "event": "reset_complete",
+              "target": "s0"
+            },
+            {
+              "source": "s10",
+              "event": "tamper",
+              "target": "s14"
+            },
+            {
+              "source": "s10",
+              "event": "admin_reset",
+              "target": "s15"
+            },
+            {
+              "source": "s10",
+              "event": "wait",
+              "target": "s10"
+            },
+            {
+              "source": "s11",
+              "event": "tamper",
+              "target": "s11"
+            },
+            {
+              "source": "s11",
+              "event": "admin_reset",
+              "target": "s16"
+            },
+            {
+              "source": "s11",
+              "event": "wait",
+              "target": "s11"
+            },
+            {
+              "source": "s12",
+              "event": "reset_complete",
+              "target": "s0"
+            },
+            {
+              "source": "s13",
+              "event": "reset_complete",
+              "target": "s0"
+            },
+            {
+              "source": "s14",
+              "event": "tamper",
+              "target": "s14"
+            },
+            {
+              "source": "s14",
+              "event": "admin_reset",
+              "target": "s17"
+            },
+            {
+              "source": "s14",
+              "event": "wait",
+              "target": "s14"
+            },
+            {
+              "source": "s15",
+              "event": "reset_complete",
+              "target": "s0"
+            },
+            {
+              "source": "s16",
+              "event": "reset_complete",
+              "target": "s0"
+            },
+            {
+              "source": "s17",
+              "event": "reset_complete",
+              "target": "s0"
+            }
+          ]
+        }
+      ],
+      "svg": "D:\\PersonalProject\\kripke-model-checking\\results\\g4\\diagrams\\kripke_v1.svg",
+      "png": "D:\\PersonalProject\\kripke-model-checking\\results\\g4\\diagrams\\kripke_v1.png",
+      "dot": "D:\\PersonalProject\\kripke-model-checking\\results\\g4\\diagrams\\kripke_v1.dot",
+      "png_size": [
+        2311,
+        1769
+      ],
+      "render_warnings": []
+    },
+    {
+      "name": "authentication_lockout",
+      "title": "Authentication + Account Lockout (v1)",
+      "note": "Event slice from integrated G2 model; omitted events remain in full Kripke.",
+      "parts": [
+        {
+          "version": "v1",
+          "state_ids": [
+            "s0",
+            "s1",
+            "s2",
+            "s6",
+            "s10"
+          ],
+          "edges": [
+            {
+              "source": "s0",
+              "event": "password_ok",
+              "target": "s1"
+            },
+            {
+              "source": "s0",
+              "event": "password_bad",
+              "target": "s2"
+            },
+            {
+              "source": "s2",
+              "event": "password_ok",
+              "target": "s1"
+            },
+            {
+              "source": "s2",
+              "event": "password_bad",
+              "target": "s6"
+            },
+            {
+              "source": "s6",
+              "event": "password_ok",
+              "target": "s1"
+            },
+            {
+              "source": "s6",
+              "event": "password_bad",
+              "target": "s10"
+            }
+          ]
+        }
+      ],
+      "svg": "D:\\PersonalProject\\kripke-model-checking\\results\\g4\\diagrams\\authentication_lockout.svg",
+      "png": "D:\\PersonalProject\\kripke-model-checking\\results\\g4\\diagrams\\authentication_lockout.png",
+      "dot": "D:\\PersonalProject\\kripke-model-checking\\results\\g4\\diagrams\\authentication_lockout.dot",
+      "png_size": [
+        816,
+        1051
+      ],
+      "render_warnings": []
+    },
+    {
+      "name": "door_alarm",
+      "title": "Door Control + Alarm (v1)",
+      "note": "G2 slice: normal phase, failed_attempts=0; password_ok provides authentication context.",
+      "parts": [
+        {
+          "version": "v1",
+          "state_ids": [
+            "s0",
+            "s1",
+            "s3",
+            "s5"
+          ],
+          "edges": [
+            {
+              "source": "s0",
+              "event": "password_ok",
+              "target": "s1"
+            },
+            {
+              "source": "s0",
+              "event": "tamper",
+              "target": "s3"
+            },
+            {
+              "source": "s1",
+              "event": "open_door",
+              "target": "s5"
+            },
+            {
+              "source": "s1",
+              "event": "tamper",
+              "target": "s3"
+            },
+            {
+              "source": "s3",
+              "event": "tamper",
+              "target": "s3"
+            },
+            {
+              "source": "s5",
+              "event": "close_door",
+              "target": "s0"
+            },
+            {
+              "source": "s5",
+              "event": "tamper",
+              "target": "s3"
+            }
+          ]
+        }
+      ],
+      "svg": "D:\\PersonalProject\\kripke-model-checking\\results\\g4\\diagrams\\door_alarm.svg",
+      "png": "D:\\PersonalProject\\kripke-model-checking\\results\\g4\\diagrams\\door_alarm.png",
+      "dot": "D:\\PersonalProject\\kripke-model-checking\\results\\g4\\diagrams\\door_alarm.dot",
+      "png_size": [
+        807,
+        1051
+      ],
+      "render_warnings": []
+    },
+    {
+      "name": "admin_recovery",
+      "title": "Admin Recovery: lockout + alarm example",
+      "note": "Two real G2 paths. admin_reset requires admin_authenticated=True. Red loop is BUG-02.",
+      "parts": [
+        {
+          "version": "v0",
+          "state_ids": [
+            "s0",
+            "s2",
+            "s7",
+            "s12",
+            "s17",
+            "s20"
+          ],
+          "edges": [
+            {
+              "source": "s0",
+              "event": "password_bad",
+              "target": "s2"
+            },
+            {
+              "source": "s2",
+              "event": "password_bad",
+              "target": "s7"
+            },
+            {
+              "source": "s7",
+              "event": "password_bad",
+              "target": "s12"
+            },
+            {
+              "source": "s12",
+              "event": "tamper",
+              "target": "s17"
+            },
+            {
+              "source": "s17",
+              "event": "admin_reset",
+              "target": "s20"
+            },
+            {
+              "source": "s20",
+              "event": "reset_complete",
+              "target": "s0"
+            },
+            {
+              "source": "s20",
+              "event": "reset_retry",
+              "target": "s20"
+            }
+          ]
+        },
+        {
+          "version": "v1",
+          "state_ids": [
+            "s0",
+            "s2",
+            "s6",
+            "s10",
+            "s14",
+            "s17"
+          ],
+          "edges": [
+            {
+              "source": "s0",
+              "event": "password_bad",
+              "target": "s2"
+            },
+            {
+              "source": "s2",
+              "event": "password_bad",
+              "target": "s6"
+            },
+            {
+              "source": "s6",
+              "event": "password_bad",
+              "target": "s10"
+            },
+            {
+              "source": "s10",
+              "event": "tamper",
+              "target": "s14"
+            },
+            {
+              "source": "s14",
+              "event": "admin_reset",
+              "target": "s17"
+            },
+            {
+              "source": "s17",
+              "event": "reset_complete",
+              "target": "s0"
+            }
+          ]
+        }
+      ],
+      "svg": "D:\\PersonalProject\\kripke-model-checking\\results\\g4\\diagrams\\admin_recovery.svg",
+      "png": "D:\\PersonalProject\\kripke-model-checking\\results\\g4\\diagrams\\admin_recovery.png",
+      "dot": "D:\\PersonalProject\\kripke-model-checking\\results\\g4\\diagrams\\admin_recovery.dot",
+      "png_size": [
+        913,
+        1411
+      ],
+      "render_warnings": []
+    },
+    {
+      "name": "counterexample_p1_v0",
+      "title": "Counterexample P1 (v0)",
+      "note": "Red = violating edge.",
+      "parts": [
+        {
+          "version": "v0",
+          "state_ids": [
+            "s0",
+            "s3"
+          ],
+          "edges": [
+            {
+              "source": "s0",
+              "event": "open_door",
+              "target": "s3",
+              "role": "prefix"
+            }
+          ]
+        }
+      ],
+      "svg": "D:\\PersonalProject\\kripke-model-checking\\results\\g4\\diagrams\\counterexample_p1_v0.svg",
+      "png": "D:\\PersonalProject\\kripke-model-checking\\results\\g4\\diagrams\\counterexample_p1_v0.png",
+      "dot": "D:\\PersonalProject\\kripke-model-checking\\results\\g4\\diagrams\\counterexample_p1_v0.dot",
+      "png_size": [
+        716,
+        661
+      ],
+      "render_warnings": []
+    },
+    {
+      "name": "counterexample_p5_v0",
+      "title": "Counterexample P5 (v0)",
+      "note": "Blue = finite prefix; red = cycle repeated forever. reset_step=1, loop_start=1.",
+      "parts": [
+        {
+          "version": "v0",
+          "state_ids": [
+            "s0",
+            "s5"
+          ],
+          "edges": [
+            {
+              "source": "s0",
+              "event": "admin_reset",
+              "target": "s5",
+              "role": "prefix"
+            },
+            {
+              "source": "s5",
+              "event": "reset_retry",
+              "target": "s5",
+              "role": "cycle"
+            }
+          ]
+        }
+      ],
+      "svg": "D:\\PersonalProject\\kripke-model-checking\\results\\g4\\diagrams\\counterexample_p5_v0.svg",
+      "png": "D:\\PersonalProject\\kripke-model-checking\\results\\g4\\diagrams\\counterexample_p5_v0.png",
+      "dot": "D:\\PersonalProject\\kripke-model-checking\\results\\g4\\diagrams\\counterexample_p5_v0.dot",
+      "png_size": [
+        772,
+        691
+      ],
+      "render_warnings": []
+    }
+  ],
+  "graphviz_version": "dot - graphviz version 16.1.0 (20260904.0139)"
+}

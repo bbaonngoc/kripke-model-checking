@@ -1,0 +1,12 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.2, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\ADMIN\AppData\Local\Python\pythoncore-3.14-64\python.exe
+rootdir: D:\PersonalProject\kripke-model-checking
+configfile: pytest.ini
+collecting ... collected 4 items
+
+references/lab1_kripke_access_model/tests/test_kripke.py::test_safe_model_all_properties_hold PASSED [ 25%]
+references/lab1_kripke_access_model/tests/test_kripke.py::test_buggy_model_violates_p1 PASSED [ 50%]
+references/lab1_kripke_access_model/tests/test_kripke.py::test_buggy_model_reachability_still_holds PASSED [ 75%]
+references/lab6_bounded_model_checking/tests/test_bmc.py::test_bmc_results_match_expectation PASSED [100%]
+
+============================== 4 passed in 0.19s ==============================

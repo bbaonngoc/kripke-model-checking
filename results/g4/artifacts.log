@@ -1,0 +1,10 @@
+v0: generated D:\PersonalProject\kripke-model-checking\generated\v0\smart_lock.py; audit PASS; cases=378, accepted=125, rejected=253, edges=69
+v1: generated D:\PersonalProject\kripke-model-checking\generated\v1\smart_lock.py; audit PASS; cases=324, accepted=82, rejected=242, edges=46
+Diagram kripke_v0: SVG + PNG [2304, 2256]; warnings=0
+Diagram kripke_v1: SVG + PNG [2311, 1769]; warnings=0
+Diagram authentication_lockout: SVG + PNG [816, 1051]; warnings=0
+Diagram door_alarm: SVG + PNG [807, 1051]; warnings=0
+Diagram admin_recovery: SVG + PNG [913, 1411]; warnings=0
+Diagram counterexample_p1_v0: SVG + PNG [716, 661]; warnings=0
+Diagram counterexample_p5_v0: SVG + PNG [772, 691]; warnings=0
+G4 complete: G2/G3 evidence reused; no new CTL/BMC run or G5 PDF.

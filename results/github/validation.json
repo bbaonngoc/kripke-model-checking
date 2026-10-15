@@ -1,0 +1,319 @@
+{
+  "stage": "GitHub handover",
+  "technical_status": "PASS",
+  "method": "git checkout-index of staged files, exact byte comparison, new isolated venv, freshly downloaded Graphviz",
+  "exported_file_count": 81,
+  "runtime": {
+    "python": "3.14.2",
+    "pytest": "9.1.1",
+    "z3": "5.1.0",
+    "z3_module": ".venv\\Lib\\site-packages\\z3\\__init__.py",
+    "pytest_module": ".venv\\Lib\\site-packages\\pytest\\__init__.py",
+    "smartlock_module": "smartlock\\__init__.py",
+    "system_site_packages": false
+  },
+  "platform": "Windows",
+  "graphviz": {
+    "version": "dot - graphviz version 16.1.0 (20260904.0139)",
+    "download_url": "https://gitlab.com/api/v4/projects/4207231/packages/generic/graphviz-releases/16.1.0/windows_10_cmake_Release_Graphviz-16.1.0-win64.zip",
+    "archive_sha256": "733e49626c492242eb8dca30ea627b6ead20710e207998c7933b4909d92d6abc",
+    "published_sha256_matched": true,
+    "fresh_install_inside_clean_repository": true
+  },
+  "tests": {
+    "passed": 199,
+    "failed": 0,
+    "skipped": 0,
+    "scope": "tests/ only; all 78 G2 + 72 G3 + 49 G4"
+  },
+  "versions": {
+    "v0": {
+      "statistics": {
+        "states": 21,
+        "reachable_states": 21,
+        "event_transitions": 69,
+        "relation_pairs": 65,
+        "max_bfs_depth": 5
+      },
+      "ctl": {
+        "P1": "VIOLATED",
+        "P2": "HOLDS",
+        "P3": "HOLDS",
+        "P4": "HOLDS",
+        "P5": "VIOLATED"
+      },
+      "solver_calls": 20,
+      "solver_outcomes": {
+        "SAT": 1,
+        "UNSAT": 19,
+        "UNKNOWN": 0
+      },
+      "safety_completeness_threshold": 5
+    },
+    "v1": {
+      "statistics": {
+        "states": 18,
+        "reachable_states": 18,
+        "event_transitions": 46,
+        "relation_pairs": 42,
+        "max_bfs_depth": 5
+      },
+      "ctl": {
+        "P1": "HOLDS",
+        "P2": "HOLDS",
+        "P3": "HOLDS",
+        "P4": "HOLDS",
+        "P5": "HOLDS"
+      },
+      "solver_calls": 24,
+      "solver_outcomes": {
+        "SAT": 0,
+        "UNSAT": 24,
+        "UNKNOWN": 0
+      },
+      "safety_completeness_threshold": 5
+    }
+  },
+  "real_verification_solver_outcomes": {
+    "SAT": 1,
+    "UNSAT": 43,
+    "UNKNOWN": 0
+  },
+  "real_verification_solver_calls": 44,
+  "generated_code_audits": {
+    "v0": {
+      "status": "PASS",
+      "states_checked": 21,
+      "event_count": 9,
+      "admin_contexts": [
+        false,
+        true
+      ],
+      "cases_checked": 378,
+      "accepted_cases": 125,
+      "rejected_cases": 253,
+      "distinct_edges_matched": 69,
+      "initial_and_state_values_match": true,
+      "generated_sha256": "099fa62febef4c8afba2b498e025ed3af8e44243df6d0aba2e3901af17dca2c7",
+      "standalone_execution": {
+        "command": [
+          "D:\\PersonalProject\\kripke-model-checking\\tmp\\github_preparation\\clean_20261015_155352\\repository\\.venv\\Scripts\\python.EXE",
+          "-I",
+          "-S",
+          "D:\\PersonalProject\\kripke-model-checking\\tmp\\github_preparation\\clean_20261015_155352\\repository\\tmp\\from_accepted\\v0\\smart_lock.py",
+          "--events",
+          "password_ok",
+          "open_door"
+        ],
+        "returncode": 0,
+        "stdout": "step 0 s0: {\"authenticated\": false, \"failed_attempts\": 0, \"door_open\": false, \"alarm\": false, \"phase\": \"normal\", \"admin_authorized\": false}\nstep 1 --password_ok--> s1: {\"authenticated\": true, \"failed_attempts\": 0, \"door_open\": false, \"alarm\": false, \"phase\": \"normal\", \"admin_authorized\": false}\nstep 2 --open_door--> s6: {\"authenticated\": true, \"failed_attempts\": 0, \"door_open\": true, \"alarm\": false, \"phase\": \"normal\", \"admin_authorized\": false}\n",
+        "stderr": ""
+      }
+    },
+    "v1": {
+      "status": "PASS",
+      "states_checked": 18,
+      "event_count": 9,
+      "admin_contexts": [
+        false,
+        true
+      ],
+      "cases_checked": 324,
+      "accepted_cases": 82,
+      "rejected_cases": 242,
+      "distinct_edges_matched": 46,
+      "initial_and_state_values_match": true,
+      "generated_sha256": "c53b5e5235a3d02b99b182f81113401117ffe5a8fa9f062c3d5ed33f8b84bbd3",
+      "standalone_execution": {
+        "command": [
+          "D:\\PersonalProject\\kripke-model-checking\\tmp\\github_preparation\\clean_20261015_155352\\repository\\.venv\\Scripts\\python.EXE",
+          "-I",
+          "-S",
+          "D:\\PersonalProject\\kripke-model-checking\\tmp\\github_preparation\\clean_20261015_155352\\repository\\tmp\\from_accepted\\v1\\smart_lock.py",
+          "--events",
+          "password_ok",
+          "open_door"
+        ],
+        "returncode": 0,
+        "stdout": "step 0 s0: {\"authenticated\": false, \"failed_attempts\": 0, \"door_open\": false, \"alarm\": false, \"phase\": \"normal\", \"admin_authorized\": false}\nstep 1 --password_ok--> s1: {\"authenticated\": true, \"failed_attempts\": 0, \"door_open\": false, \"alarm\": false, \"phase\": \"normal\", \"admin_authorized\": false}\nstep 2 --open_door--> s5: {\"authenticated\": true, \"failed_attempts\": 0, \"door_open\": true, \"alarm\": false, \"phase\": \"normal\", \"admin_authorized\": false}\n",
+        "stderr": ""
+      }
+    }
+  },
+  "diagrams_regenerated_and_validated": 7,
+  "accepted_generated_programs_reproduced_byte_for_byte": true,
+  "accepted_evidence_unchanged_in_clean_tree": true,
+  "protected_existing_files": 77,
+  "protected_existing_files_changed": [],
+  "commands": [
+    {
+      "command": "python -m venv .venv",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 6.089
+    },
+    {
+      "command": "python -m pip install -r requirements.txt",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 13.173
+    },
+    {
+      "command": "python -m pip check",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 0.728
+    },
+    {
+      "command": "dot -V",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 0.329
+    },
+    {
+      "command": "python -c \"verify interpreter, dependency and source locations\"",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 0.517
+    },
+    {
+      "command": "py -3 --version",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 0.159
+    },
+    {
+      "command": "python -X utf8 run.py --version v1 --output-dir tmp/demo --events password_ok open_door close_door",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 0.207
+    },
+    {
+      "command": "python -X utf8 run.py --version v1 --output-dir tmp/demo --events password_bad password_bad password_bad",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 0.198
+    },
+    {
+      "command": "python -X utf8 run.py --version v1 --output-dir tmp/demo --events tamper admin_reset reset_complete --admin-authenticated",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 0.188
+    },
+    {
+      "command": "python -I -S generated/v0/smart_lock.py --events open_door",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 0.157
+    },
+    {
+      "command": "python -I -S generated/v1/smart_lock.py --events password_ok open_door",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 0.177
+    },
+    {
+      "command": "python -I -S generated/v1/smart_lock.py --events open_door",
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "passed": true,
+      "elapsed_seconds": 0.182
+    },
+    {
+      "command": "python -I -S generated/v0/smart_lock.py --events admin_reset reset_retry reset_retry --admin-authenticated",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 0.16
+    },
+    {
+      "command": "python -I -S generated/v1/smart_lock.py --events admin_reset reset_complete --admin-authenticated",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 0.247
+    },
+    {
+      "command": "python -I -S generated/v1/smart_lock.py --events admin_reset reset_retry --admin-authenticated",
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "passed": true,
+      "elapsed_seconds": 0.148
+    },
+    {
+      "command": "python -X utf8 -m pytest --color=no -p no:cacheprovider -v",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 6.648
+    },
+    {
+      "command": "python -X utf8 run.py --output-dir tmp/recheck",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 0.194
+    },
+    {
+      "command": "python -X utf8 run.py --verify --output-dir tmp/recheck",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 1.239
+    },
+    {
+      "command": "python -X utf8 run.py --artifacts --output-dir tmp/recheck --generated-dir tmp/gen",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 2.416
+    },
+    {
+      "command": "python -X utf8 run.py --artifacts --output-dir tmp/accepted --generated-dir tmp/from_accepted",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 2.521
+    }
+  ],
+  "limitations": [
+    "No Linux/macOS execution performed.",
+    "Toolkit public redistribution permission awaits group confirmation.",
+    "Git clone URL is the configured origin; unpublished staged files cannot yet be fetched from GitHub.",
+    "Final evidence logs are written after testing; their contents do not affect executable source."
+  ],
+  "static_checks": {
+    "secret_pattern_findings": [],
+    "readme_relative_links": 40,
+    "missing_readme_links": [],
+    "readme_links_not_in_index": [],
+    "git_diff_check_exit": 0
+  },
+  "git": {
+    "root": ".",
+    "branch": "main",
+    "head_unchanged": "6d9ef7e",
+    "configured_origin": "https://github.com/bbaonngoc/kripke-model-checking.git",
+    "prepared_file_count": 81,
+    "tracked_but_ignored": [],
+    "commit_created": false,
+    "push_performed": false,
+    "publication_status": "AWAITING_USER_REVIEW_AND_TOOLKIT_PERMISSION"
+  },
+  "privacy_notes": [
+    "No private-key/token/credential-URL patterns detected in prepared text files. This is a heuristic scan, not a guarantee.",
+    "Accepted historical evidence contains original Windows machine paths as provenance; no runtime command depends on those paths.",
+    "Original lecture PDFs, unneeded toolkit files, ZIPs, caches and environments are excluded."
+  ]
+}

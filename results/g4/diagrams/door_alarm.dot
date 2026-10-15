@@ -1,0 +1,20 @@
+digraph SmartLock {
+graph [rankdir=TB, bgcolor="white", fontname="Arial", fontsize=15, labelloc=t, label="Door Control + Alarm (v1)\nG2 slice: normal phase, failed_attempts=0; password_ok provides\nauthentication context.\nA=authenticated D=door B=alarm U=admin\nN=normal L=locked_out R=resetting; red=P1/P5 evidence", nodesep=0.45, ranksep=0.8, pad=0.2];
+node [shape=box, style="rounded,filled", fillcolor="white", color="#475569", fontname="Arial", fontsize=12];
+edge [fontname="Arial", fontsize=11, color="#64748b", arrowsize=0.7];
+subgraph cluster_v1 { label="v1"; color="#cbd5e1";
+"v1_s0" [label="s0  N f=0\nA=0 D=0 B=0 U=0", peripheries=2, color="#475569", fillcolor="white"];
+"v1_s1" [label="s1  N f=0\nA=1 D=0 B=0 U=0", peripheries=1, color="#475569", fillcolor="white"];
+"v1_s3" [label="s3  N f=0\nA=0 D=0 B=1 U=0", peripheries=1, color="#475569", fillcolor="white"];
+"v1_s5" [label="s5  N f=0\nA=1 D=1 B=0 U=0", peripheries=1, color="#475569", fillcolor="white"];
+start_v1 [shape=point, width=0.08, label=""];
+start_v1 -> "v1_s0" [label="initial", color="#334155"];
+"v1_s0" -> "v1_s1" [label="password_ok", color="#64748b", fontcolor="#334155", penwidth=1];
+"v1_s0" -> "v1_s3" [label="tamper", color="#64748b", fontcolor="#334155", penwidth=1];
+"v1_s1" -> "v1_s5" [label="open_door", color="#64748b", fontcolor="#334155", penwidth=1];
+"v1_s1" -> "v1_s3" [label="tamper", color="#64748b", fontcolor="#334155", penwidth=1];
+"v1_s3" -> "v1_s3" [label="tamper", color="#64748b", fontcolor="#334155", penwidth=1];
+"v1_s5" -> "v1_s0" [label="close_door", color="#64748b", fontcolor="#334155", penwidth=1];
+"v1_s5" -> "v1_s3" [label="tamper", color="#64748b", fontcolor="#334155", penwidth=1];
+}
+}

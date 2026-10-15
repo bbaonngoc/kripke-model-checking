@@ -1,0 +1,102 @@
+G4 standalone Python examples: actual subprocess execution
+Interpreter: C:\Users\ADMIN\AppData\Local\Python\pythoncore-3.14-64\python.exe
+Each process uses -I -S and an empty temporary working directory.
+Exit 1 is expected for explicitly rejected inputs.
+
+v0 authentication_door
+command=["C:\\Users\\ADMIN\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe", "-I", "-S", "D:\\PersonalProject\\kripke-model-checking\\generated\\v0\\smart_lock.py", "--events", "password_ok", "open_door", "close_door"]
+expected_exit=0; actual_exit=0; PASS=True
+step 0 s0: {"authenticated": false, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "normal", "admin_authorized": false}
+step 1 --password_ok--> s1: {"authenticated": true, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "normal", "admin_authorized": false}
+step 2 --open_door--> s6: {"authenticated": true, "failed_attempts": 0, "door_open": true, "alarm": false, "phase": "normal", "admin_authorized": false}
+step 3 --close_door--> s0: {"authenticated": false, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "normal", "admin_authorized": false}
+stderr=''
+
+v1 authentication_door
+command=["C:\\Users\\ADMIN\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe", "-I", "-S", "D:\\PersonalProject\\kripke-model-checking\\generated\\v1\\smart_lock.py", "--events", "password_ok", "open_door", "close_door"]
+expected_exit=0; actual_exit=0; PASS=True
+step 0 s0: {"authenticated": false, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "normal", "admin_authorized": false}
+step 1 --password_ok--> s1: {"authenticated": true, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "normal", "admin_authorized": false}
+step 2 --open_door--> s5: {"authenticated": true, "failed_attempts": 0, "door_open": true, "alarm": false, "phase": "normal", "admin_authorized": false}
+step 3 --close_door--> s0: {"authenticated": false, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "normal", "admin_authorized": false}
+stderr=''
+
+v0 lockout_alarm_recovery
+command=["C:\\Users\\ADMIN\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe", "-I", "-S", "D:\\PersonalProject\\kripke-model-checking\\generated\\v0\\smart_lock.py", "--admin-authenticated", "--events", "password_bad", "password_bad", "password_bad", "tamper", "admin_reset", "reset_complete"]
+expected_exit=0; actual_exit=0; PASS=True
+step 0 s0: {"authenticated": false, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "normal", "admin_authorized": false}
+step 1 --password_bad--> s2: {"authenticated": false, "failed_attempts": 1, "door_open": false, "alarm": false, "phase": "normal", "admin_authorized": false}
+step 2 --password_bad--> s7: {"authenticated": false, "failed_attempts": 2, "door_open": false, "alarm": false, "phase": "normal", "admin_authorized": false}
+step 3 --password_bad--> s12: {"authenticated": false, "failed_attempts": 3, "door_open": false, "alarm": false, "phase": "locked_out", "admin_authorized": false}
+step 4 --tamper--> s17: {"authenticated": false, "failed_attempts": 3, "door_open": false, "alarm": true, "phase": "locked_out", "admin_authorized": false}
+step 5 --admin_reset--> s20: {"authenticated": false, "failed_attempts": 3, "door_open": false, "alarm": true, "phase": "resetting", "admin_authorized": true}
+step 6 --reset_complete--> s0: {"authenticated": false, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "normal", "admin_authorized": false}
+stderr=''
+
+v1 lockout_alarm_recovery
+command=["C:\\Users\\ADMIN\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe", "-I", "-S", "D:\\PersonalProject\\kripke-model-checking\\generated\\v1\\smart_lock.py", "--admin-authenticated", "--events", "password_bad", "password_bad", "password_bad", "tamper", "admin_reset", "reset_complete"]
+expected_exit=0; actual_exit=0; PASS=True
+step 0 s0: {"authenticated": false, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "normal", "admin_authorized": false}
+step 1 --password_bad--> s2: {"authenticated": false, "failed_attempts": 1, "door_open": false, "alarm": false, "phase": "normal", "admin_authorized": false}
+step 2 --password_bad--> s6: {"authenticated": false, "failed_attempts": 2, "door_open": false, "alarm": false, "phase": "normal", "admin_authorized": false}
+step 3 --password_bad--> s10: {"authenticated": false, "failed_attempts": 3, "door_open": false, "alarm": false, "phase": "locked_out", "admin_authorized": false}
+step 4 --tamper--> s14: {"authenticated": false, "failed_attempts": 3, "door_open": false, "alarm": true, "phase": "locked_out", "admin_authorized": false}
+step 5 --admin_reset--> s17: {"authenticated": false, "failed_attempts": 3, "door_open": false, "alarm": true, "phase": "resetting", "admin_authorized": true}
+step 6 --reset_complete--> s0: {"authenticated": false, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "normal", "admin_authorized": false}
+stderr=''
+
+v0 P1_reproduced
+command=["C:\\Users\\ADMIN\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe", "-I", "-S", "D:\\PersonalProject\\kripke-model-checking\\generated\\v0\\smart_lock.py", "--events", "open_door"]
+expected_exit=0; actual_exit=0; PASS=True
+step 0 s0: {"authenticated": false, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "normal", "admin_authorized": false}
+step 1 --open_door--> s3: {"authenticated": false, "failed_attempts": 0, "door_open": true, "alarm": false, "phase": "normal", "admin_authorized": false}
+stderr=''
+
+v1 P1_blocked
+command=["C:\\Users\\ADMIN\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe", "-I", "-S", "D:\\PersonalProject\\kripke-model-checking\\generated\\v1\\smart_lock.py", "--events", "open_door"]
+expected_exit=1; actual_exit=1; PASS=True
+step 0 s0: {"authenticated": false, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "normal", "admin_authorized": false}
+step 1: REJECTED Event 'open_door' is not enabled at s0
+stderr=''
+
+v0 P5_cycle_repeated
+command=["C:\\Users\\ADMIN\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe", "-I", "-S", "D:\\PersonalProject\\kripke-model-checking\\generated\\v0\\smart_lock.py", "--admin-authenticated", "--events", "admin_reset", "reset_retry", "reset_retry"]
+expected_exit=0; actual_exit=0; PASS=True
+step 0 s0: {"authenticated": false, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "normal", "admin_authorized": false}
+step 1 --admin_reset--> s5: {"authenticated": false, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "resetting", "admin_authorized": true}
+step 2 --reset_retry--> s5: {"authenticated": false, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "resetting", "admin_authorized": true}
+step 3 --reset_retry--> s5: {"authenticated": false, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "resetting", "admin_authorized": true}
+stderr=''
+
+v1 reset_retry_rejected
+command=["C:\\Users\\ADMIN\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe", "-I", "-S", "D:\\PersonalProject\\kripke-model-checking\\generated\\v1\\smart_lock.py", "--admin-authenticated", "--events", "admin_reset", "reset_retry"]
+expected_exit=1; actual_exit=1; PASS=True
+step 0 s0: {"authenticated": false, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "normal", "admin_authorized": false}
+step 1 --admin_reset--> s4: {"authenticated": false, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "resetting", "admin_authorized": true}
+step 2: REJECTED Event 'reset_retry' is not enabled at s4
+stderr=''
+
+v1 reset_wait_rejected
+command=["C:\\Users\\ADMIN\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe", "-I", "-S", "D:\\PersonalProject\\kripke-model-checking\\generated\\v1\\smart_lock.py", "--admin-authenticated", "--events", "admin_reset", "wait"]
+expected_exit=1; actual_exit=1; PASS=True
+step 0 s0: {"authenticated": false, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "normal", "admin_authorized": false}
+step 1 --admin_reset--> s4: {"authenticated": false, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "resetting", "admin_authorized": true}
+step 2: REJECTED Event 'wait' is not enabled at s4
+stderr=''
+
+v1 admin_required
+command=["C:\\Users\\ADMIN\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe", "-I", "-S", "D:\\PersonalProject\\kripke-model-checking\\generated\\v1\\smart_lock.py", "--events", "admin_reset"]
+expected_exit=1; actual_exit=1; PASS=True
+step 0 s0: {"authenticated": false, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "normal", "admin_authorized": false}
+step 1: REJECTED Admin verification is required
+stderr=''
+
+v1 user_not_admin
+command=["C:\\Users\\ADMIN\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe", "-I", "-S", "D:\\PersonalProject\\kripke-model-checking\\generated\\v1\\smart_lock.py", "--events", "password_ok", "admin_reset"]
+expected_exit=1; actual_exit=1; PASS=True
+step 0 s0: {"authenticated": false, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "normal", "admin_authorized": false}
+step 1 --password_ok--> s1: {"authenticated": true, "failed_attempts": 0, "door_open": false, "alarm": false, "phase": "normal", "admin_authorized": false}
+step 2: REJECTED Admin verification is required
+stderr=''
+
+Standalone scenarios: 11 PASS, 0 FAIL

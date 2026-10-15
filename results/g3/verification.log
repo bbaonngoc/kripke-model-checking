@@ -1,0 +1,77 @@
+G3 verification; Z3 5.1.0; no G4/G5 artifacts
+v0: snapshot G2 matched; D=5; solver_calls=20; outcomes={'SAT': 1, 'UNSAT': 19, 'UNKNOWN': 0}; application_errors=0
+  P1 AG(door_open -> (authenticated AND NOT locked_out)): CTL=VIOLATED; antecedent_states=4
+    Z3 k=0: UNSAT; status=UNSAT; called=True
+    Z3 k=1: SAT; status=SAT; called=True
+    BMC conclusion=VIOLATED; agreement=True
+    Counterexample replay validated: s0 --open_door--> s3; violation_step=1
+      step 0 s0: {'authenticated': False, 'failed_attempts': 0, 'door_open': False, 'alarm': False, 'phase': 'normal', 'admin_authorized': False}; incoming=None; admin_authenticated=False
+      step 1 s3: {'authenticated': False, 'failed_attempts': 0, 'door_open': True, 'alarm': False, 'phase': 'normal', 'admin_authorized': False}; incoming=open_door; admin_authenticated=False
+  P2 AG(locked_out -> attempts_eq_3): CTL=HOLDS; antecedent_states=2
+    Z3 k=0: UNSAT; status=UNSAT; called=True
+    Z3 k=1: UNSAT; status=UNSAT; called=True
+    Z3 k=2: UNSAT; status=UNSAT; called=True
+    Z3 k=3: UNSAT; status=UNSAT; called=True
+    Z3 k=4: UNSAT; status=UNSAT; called=True
+    Z3 k=5: UNSAT; status=UNSAT; called=True
+    BMC conclusion=HOLDS; agreement=True
+  P3 AG(alarm -> NOT door_open): CTL=HOLDS; antecedent_states=8
+    Z3 k=0: UNSAT; status=UNSAT; called=True
+    Z3 k=1: UNSAT; status=UNSAT; called=True
+    Z3 k=2: UNSAT; status=UNSAT; called=True
+    Z3 k=3: UNSAT; status=UNSAT; called=True
+    Z3 k=4: UNSAT; status=UNSAT; called=True
+    Z3 k=5: UNSAT; status=UNSAT; called=True
+    BMC conclusion=HOLDS; agreement=True
+  P4 AG(resetting -> admin_authorized): CTL=HOLDS; antecedent_states=8
+    Z3 k=0: UNSAT; status=UNSAT; called=True
+    Z3 k=1: UNSAT; status=UNSAT; called=True
+    Z3 k=2: UNSAT; status=UNSAT; called=True
+    Z3 k=3: UNSAT; status=UNSAT; called=True
+    Z3 k=4: UNSAT; status=UNSAT; called=True
+    Z3 k=5: UNSAT; status=UNSAT; called=True
+    BMC conclusion=HOLDS; agreement=True
+  P5 AG(resetting -> AF idle): CTL=VIOLATED; antecedent_states=8
+    AF fixed-point sizes=[1]; Z3 not used
+    Counterexample replay validated: s0 --admin_reset--> s5 --reset_retry--> s5; reset_step=1; loop_start=1
+      step 0 s0: {'authenticated': False, 'failed_attempts': 0, 'door_open': False, 'alarm': False, 'phase': 'normal', 'admin_authorized': False}; incoming=None; admin_authenticated=False
+      step 1 s5: {'authenticated': False, 'failed_attempts': 0, 'door_open': False, 'alarm': False, 'phase': 'resetting', 'admin_authorized': True}; incoming=admin_reset; admin_authenticated=True
+      step 2 s5: {'authenticated': False, 'failed_attempts': 0, 'door_open': False, 'alarm': False, 'phase': 'resetting', 'admin_authorized': True}; incoming=reset_retry; admin_authenticated=False
+  Saved D:\PersonalProject\kripke-model-checking\results\v0\verification.json
+v1: snapshot G2 matched; D=5; solver_calls=24; outcomes={'SAT': 0, 'UNSAT': 24, 'UNKNOWN': 0}; application_errors=0
+  P1 AG(door_open -> (authenticated AND NOT locked_out)): CTL=HOLDS; antecedent_states=1
+    Z3 k=0: UNSAT; status=UNSAT; called=True
+    Z3 k=1: UNSAT; status=UNSAT; called=True
+    Z3 k=2: UNSAT; status=UNSAT; called=True
+    Z3 k=3: UNSAT; status=UNSAT; called=True
+    Z3 k=4: UNSAT; status=UNSAT; called=True
+    Z3 k=5: UNSAT; status=UNSAT; called=True
+    BMC conclusion=HOLDS; agreement=True
+  P2 AG(locked_out -> attempts_eq_3): CTL=HOLDS; antecedent_states=2
+    Z3 k=0: UNSAT; status=UNSAT; called=True
+    Z3 k=1: UNSAT; status=UNSAT; called=True
+    Z3 k=2: UNSAT; status=UNSAT; called=True
+    Z3 k=3: UNSAT; status=UNSAT; called=True
+    Z3 k=4: UNSAT; status=UNSAT; called=True
+    Z3 k=5: UNSAT; status=UNSAT; called=True
+    BMC conclusion=HOLDS; agreement=True
+  P3 AG(alarm -> NOT door_open): CTL=HOLDS; antecedent_states=8
+    Z3 k=0: UNSAT; status=UNSAT; called=True
+    Z3 k=1: UNSAT; status=UNSAT; called=True
+    Z3 k=2: UNSAT; status=UNSAT; called=True
+    Z3 k=3: UNSAT; status=UNSAT; called=True
+    Z3 k=4: UNSAT; status=UNSAT; called=True
+    Z3 k=5: UNSAT; status=UNSAT; called=True
+    BMC conclusion=HOLDS; agreement=True
+  P4 AG(resetting -> admin_authorized): CTL=HOLDS; antecedent_states=8
+    Z3 k=0: UNSAT; status=UNSAT; called=True
+    Z3 k=1: UNSAT; status=UNSAT; called=True
+    Z3 k=2: UNSAT; status=UNSAT; called=True
+    Z3 k=3: UNSAT; status=UNSAT; called=True
+    Z3 k=4: UNSAT; status=UNSAT; called=True
+    Z3 k=5: UNSAT; status=UNSAT; called=True
+    BMC conclusion=HOLDS; agreement=True
+  P5 AG(resetting -> AF idle): CTL=HOLDS; antecedent_states=8
+    AF fixed-point sizes=[1, 9]; Z3 not used
+  Saved D:\PersonalProject\kripke-model-checking\results\v1\verification.json
+All verification-run solver outcomes: {'SAT': 1, 'UNSAT': 43, 'UNKNOWN': 0}; application_errors=0; saved D:\PersonalProject\kripke-model-checking\results\comparison.csv
