@@ -5,18 +5,20 @@
 Bài tập lớn môn An toàn phần mềm: mô phỏng khóa cửa thông minh, sinh mô hình
 Kripke bằng BFS và kiểm chứng năm thuộc tính CTL. **v0** có hai lỗi cố ý;
 **v1** bổ sung kiểm tra xác thực khi mở cửa và loại chu trình reset vô hạn.
-Phạm vi nghiệp vụ dựa trên tài liệu học phần [1], [2].
 
-Năm chức năng: **Authentication** (xác thực), **Account Lockout** (khóa sau
-đúng ba lần sai liên tiếp), **Door Control** (mở/đóng cửa), **Alarm** (báo
-động khi tamper), **Admin Recovery** (phục hồi với xác thực quản trị).
+05 chức năng: 
+**1. Authentication**
+**2. Account Lockout** (khóa sau đúng ba lần sai liên tiếp) 
+**3. Door Control** (mở/đóng cửa)
+**4. Alarm** (báo động khi tamper), 
+**5. Admin Recovery** (phục hồi với xác thực quản trị).
 
-Công nghệ: Python, softsec-toolkit [3], Kripke, BFS, CTL, BMC, Z3 [7],
-pytest và Graphviz [8].
+Công nghệ sử dụng: Python, softsec-toolkit [3], Kripke, BFS, CTL, BMC, Z3,
+pytest và Graphviz.
 
 ## 2. Mô hình Kripke và BFS
 
-Một mô hình tích hợp cho mỗi phiên bản: `K=(S,S0,R,L)` [4]. Trạng thái gồm
+Một mô hình tích hợp cho mỗi phiên bản: `K=(S,S0,R,L)`. Trạng thái gồm
 `authenticated`, `failed_attempts`, `door_open`, `alarm`, `phase`,
 `admin_authorized`; initial là `(False,0,False,False,'normal',False)`.
 
@@ -28,7 +30,7 @@ Số state v0/v1 là **21/18**; số event transitions **69/46**; số cặp R *
 ## 3. Năm đặc tả CTL
 
 AP được tính từ trạng thái bởi `labels`. AG nghĩa luôn đúng trên mọi đường;
-AF nghĩa mọi đường cuối cùng đạt điều kiện [5].
+AF nghĩa mọi đường cuối cùng đạt điều kiện.
 
 | Mã | Công thức | Yêu cầu |
 |---|---|---|
@@ -44,9 +46,9 @@ cho AF idle, kèm lasso khi vi phạm. Không có parser CTL tổng quát.
 ## 4. BMC/Z3, kết quả và counterexample
 
 BMC unroll k bước từ initial, ràng buộc từng bộ source/event/target đúng
-mô hình, rồi hỏi có bad-state ở vị trí 0..k hay không [6], [7]. Z3 được gọi
+mô hình, rồi hỏi có bad-state ở vị trí 0..k hay không. Z3 được gọi
 thật từ k=0 tăng dần; SAT được giải mã và replay bằng logic gốc.
-UNSAT chỉ loại phản ví dụ trong bound; UNKNOWN và ERROR được ghi riêng.
+UNSAT loại phản ví dụ trong bound; UNKNOWN và ERROR được ghi riêng.
 
 Độ sâu ngắn nhất lớn nhất **D=5** đủ cho bốn safety dạng bad-state hiện tại
 trên graph đầy đủ/total, không áp dụng để kết luận P5.
@@ -93,7 +95,7 @@ fixed-point, encoding, replay và cách đối chiếu mã sinh với mô hình.
 Cần Python 3.10+, Git; cài Graphviz `dot` từ [nguồn chính thức](https://graphviz.org/download/)
 và thêm vào PATH để chạy đầy đủ tests hoặc sinh ảnh. `GRAPHVIZ_DOT` cũng có
 thể trỏ trực tiếp tới executable. Mô phỏng/kiểm chứng không cần Graphviz.
-Tạo môi trường ảo theo tài liệu Python [9]:
+Tạo môi trường ảo theo tài liệu Python:
 
 ```sh
 git clone https://github.com/bbaonngoc/kripke-model-checking.git
@@ -141,10 +143,6 @@ phần cứng, mất điện, mạng hoặc thời gian thực. v1 chỉ cho res
 trong resetting; runtime cần bên gọi gửi event đó. P2 một chiều cần test
 riêng lần sai thứ ba. Kết quả chỉ chứng minh năm đặc tả trên mô hình hữu hạn.
 
-Snapshot được đối chiếu SHA-256; `.gitattributes` giữ nguyên byte. Khi chạy
-lại, dùng cùng thư mục mới cho ba lệnh để tránh trộn model và verification
-khác lần chạy. Dữ liệu gốc trong `results/` không cần ghi đè.
-
 ### 7.1. Tài liệu tham khảo
 
 [1] Vũ Quang Dũng. *Hướng dẫn Bài tập lớn: Chủ đề, phạm vi và quy trình thực hiện*; *Hướng dẫn Báo cáo Bài tập lớn*. Học phần CSE703093, Phenikaa. Tài liệu lớp, không phân phối PDF gốc trong repository.
@@ -165,6 +163,3 @@ khác lần chạy. Dữ liệu gốc trong `results/` không cần ghi đè.
 
 [9] Python Software Foundation. *venv - Creation of virtual environments*. [Python documentation](https://docs.python.org/3/library/venv.html).
 
-### 7.2. Công khai hỗ trợ AI và đóng góp nhóm
-
-AI hỗ trợ code, chỉnh sửa mã nguồn.
