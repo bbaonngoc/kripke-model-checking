@@ -7,11 +7,16 @@ Kripke bằng BFS và kiểm chứng năm thuộc tính CTL. **v0** có hai lỗ
 **v1** bổ sung kiểm tra xác thực khi mở cửa và loại chu trình reset vô hạn.
 
 05 chức năng: 
+
 **1. Authentication**
+
 **2. Account Lockout** (khóa sau đúng ba lần sai liên tiếp) 
+
 **3. Door Control** (mở/đóng cửa)
-**4. Alarm** (báo động khi tamper), 
-**5. Admin Recovery** (phục hồi với xác thực quản trị).
+
+**4. Alarm** (báo động khi tamper)
+
+**5. Admin Recovery** (phục hồi với xác thực quản trị)
 
 Công nghệ sử dụng: Python, softsec-toolkit [3], Kripke, BFS, CTL, BMC, Z3,
 pytest và Graphviz.
